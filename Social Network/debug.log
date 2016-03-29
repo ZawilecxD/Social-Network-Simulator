@@ -1,0 +1,4 @@
+WARN  [AWT-EventQueue-0] 2016-03-29 17:52:19,899 repast.simphony.scenario.ScenarioCPInitializer - Warning while parsing classpath: Empty or non-existent path 'D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\bin'.
+WARN  [AWT-EventQueue-0] 2016-03-29 17:52:19,899 repast.simphony.scenario.ScenarioWatcheeInitializer - While initializing watchers: Empty or non-existent path 'D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\bin'.
+WARN  [AWT-EventQueue-0] 2016-03-29 17:52:19,931 repast.simphony.scenario.ScenarioLoader - While initializing classpath: Empty or non-existent path 'D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\bin'.
+ERROR [AWT-EventQueue-0] 2016-03-29 17:52:20,134 repast.simphony.dataLoader.engine.MIContextXMLDataLoaderAction - ModelInitializer class was not found. Unable to initialize scenario
