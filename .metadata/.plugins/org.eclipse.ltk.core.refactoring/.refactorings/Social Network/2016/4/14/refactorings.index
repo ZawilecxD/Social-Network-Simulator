@@ -1,1 +1,16 @@
 1460312814180	Delete element
+1460316815771	Delete element
+1460316824186	Move compilation unit
+1460317292498	Move compilation unit
+1460317499737	Encapsulate field 'friends'
+1460317517177	Encapsulate field 'userId'
+1460317520161	Encapsulate field 'surname'
+1460317528417	Encapsulate field 'sex'
+1460317531706	Encapsulate field 'name'
+1460317535038	Encapsulate field 'characteristics'
+1460317538230	Encapsulate field 'mood'
+1460317541584	Encapsulate field 'groups'
+1460317544669	Encapsulate field 'events'
+1460317547498	Encapsulate field 'relationshipPartner'
+1460317627965	Delete element
+1460318225858	Delete element
