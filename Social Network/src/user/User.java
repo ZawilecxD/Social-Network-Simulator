@@ -1,5 +1,6 @@
 package user;
 
+import org.apache.log4j.Logger;
 import java.util.HashMap;
 import java.util.List;
 
