@@ -1,79 +1,41 @@
 package user;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class UserCharacteristics {
-	private double meetNewFriendsRate;
-	private double likeRate;
-	private double commentRate;
-	private double postRate;
-	private double photoRate;
-	private double groupBelongRate;
-	private double eventTakingPartRate;
-	private double assertiveness;
-	private double susceptibilityForOpinions;
-	private double amorousness;
+	private @Getter @Setter int meetNewFriendsRate; //defines a chance (1%-100%) that this user will find a friend
+	private @Getter @Setter int likeRate; //defines a chance (1%-100%) to like
+	private @Getter @Setter int commentRate; //defines a chance (1%-100%)  to comment
+	private @Getter @Setter int postRate; //defines a chance (1%-100%)  to post 
+	private @Getter @Setter double groupBelongRate;
+	private @Getter @Setter double eventParticipationRate;
+	private @Getter @Setter double assertiveness;
+	private @Getter @Setter int boardScrollRate; // useless??
+	private @Getter @Setter double amorousness;
+	private @Getter @Setter int rageRate; //0-100 
+	private @Getter @Setter int dailyMood; //0-100 chance to gain starting mood (at login) that is 5 or greater
+	private @Getter @Setter int averageDailySessionLength; //average number of tickes user spends every day on fb 
 	
 	public UserCharacteristics() {
 		
 	}
+
+	public static UserCharacteristics defaultCharacteristics() {
+		UserCharacteristics characteristics = new UserCharacteristics();
+		characteristics.setAmorousness(1.0);
+		characteristics.setAssertiveness(1.0);
+		characteristics.setAverageDailySessionLength(50);
+		characteristics.setCommentRate(1);
+		characteristics.setDailyMood(5);
+		characteristics.setEventParticipationRate(1.0);
+		characteristics.setGroupBelongRate(1);
+		characteristics.setLikeRate(1);
+		characteristics.setMeetNewFriendsRate(1);
+		characteristics.setPostRate(1);
+		characteristics.setRageRate(1);
+		
+		return characteristics;
+	}
 	
-	public double getMeetNewFriendsRate() {
-		return meetNewFriendsRate;
-	}
-	public void setMeetNewFriendsRate(double meetNewFriendsRate) {
-		this.meetNewFriendsRate = meetNewFriendsRate;
-	}
-	public double getLikeRate() {
-		return likeRate;
-	}
-	public void setLikeRate(double likeRate) {
-		this.likeRate = likeRate;
-	}
-	public double getCommentRate() {
-		return commentRate;
-	}
-	public void setCommentRate(double commentRate) {
-		this.commentRate = commentRate;
-	}
-	public double getPostRate() {
-		return postRate;
-	}
-	public void setPostRate(double postRate) {
-		this.postRate = postRate;
-	}
-	public double getPhotoRate() {
-		return photoRate;
-	}
-	public void setPhotoRate(double photoRate) {
-		this.photoRate = photoRate;
-	}
-	public double getGroupBelongRate() {
-		return groupBelongRate;
-	}
-	public void setGroupBelongRate(double groupBelongRate) {
-		this.groupBelongRate = groupBelongRate;
-	}
-	public double getEventTakingPartRate() {
-		return eventTakingPartRate;
-	}
-	public void setEventTakingPartRate(double eventTakingPartRate) {
-		this.eventTakingPartRate = eventTakingPartRate;
-	}
-	public double getAssertiveness() {
-		return assertiveness;
-	}
-	public void setAssertiveness(double assertiveness) {
-		this.assertiveness = assertiveness;
-	}
-	public double getSusceptibilityForOpinions() {
-		return susceptibilityForOpinions;
-	}
-	public void setSusceptibilityForOpinions(double susceptibilityForOpinions) {
-		this.susceptibilityForOpinions = susceptibilityForOpinions;
-	}
-	public double getAmorousness() {
-		return amorousness;
-	}
-	public void setAmorousness(double amorousness) {
-		this.amorousness = amorousness;
-	}
 }

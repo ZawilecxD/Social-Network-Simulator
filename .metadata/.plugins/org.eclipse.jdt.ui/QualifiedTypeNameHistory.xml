@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="network.User"/>
+<fullyQualifiedTypeName name="repast.simphony.context.space.graph.NetworkBuilder"/>
+<fullyQualifiedTypeName name="repast.simphony.parameter.Parameters"/>
+<fullyQualifiedTypeName name="repast.simphony.engine.environment.RunEnvironment"/>
+<fullyQualifiedTypeName name="user.Sex"/>
+<fullyQualifiedTypeName name="user.UserCharacteristics"/>
+<fullyQualifiedTypeName name="user.User"/>
+<fullyQualifiedTypeName name="repast.simphony.engine.schedule.ScheduledMethod"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="org.apache.log4j.BasicConfigurator"/>
+<fullyQualifiedTypeName name="network.Tag"/>
+<fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="posts.PostType"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+<fullyQualifiedTypeName name="posts.Post"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="org.apache.commons.collections.CollectionUtils"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="network.SocialNetworkContext"/>
+<fullyQualifiedTypeName name="repast.simphony.random.RandomHelper"/>
+<fullyQualifiedTypeName name="lombok.Getter"/>
+<fullyQualifiedTypeName name="network.TypeOfResult"/>
+</qualifiedTypeNameHistroy>
