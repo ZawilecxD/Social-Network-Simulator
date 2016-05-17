@@ -32,7 +32,8 @@ public class User {
 	private @Getter String surname;
 	private @Getter Sex sex;
 	private @Getter boolean loggedIn;
-	private @Getter int pageRank;
+	private @Getter PageRank pageRank;
+	private @Getter ActivityRank;
 
 	/**
 	 * Cechy charakteru definiuj¹ce danego user'a i jego chêæ do wykonywania ró¿nych akcji
@@ -80,6 +81,8 @@ public class User {
 		this.surname = surname;
 		this.sex = sex;
 		this.characteristics = character;
+		this.pageRank = new PageRank();
+		this.activityRank = new ActivityRank();
 		
 	}
 	
@@ -101,6 +104,9 @@ public class User {
 	@ScheduledMethod(start = 1, interval = 10) //action every 10minutes
 	public void sessionActions() {
 		if(loggedIn) {
+			if(currentPostsIDs.isEmpty()) {
+				collectInterestingPosts();
+			}
 			tryToFindAFriend();
 			tryToPost();
 			tryToComment();
