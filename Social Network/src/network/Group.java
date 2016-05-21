@@ -47,14 +47,20 @@ public class Group {
 		int numberOfFriendsInGroup = CollectionUtils.intersection(users, user.getFriends()).size();
 		valueToUser += 10*numberOfFriendsInGroup;
 		
-		int numberOfRelativesInGroup = CollectionUtils.intersection(users, user.getRelatives().keySet()).size();
-		valueToUser += 10*numberOfRelativesInGroup;
+		int numberOfRelativesInGroup = CollectionUtils.intersection(users, user.getRelatives()).size();
+		valueToUser += 15*numberOfRelativesInGroup;
 		
 		return valueToUser;
 	}
 	
 	public void addUser(int userId) {
 		users.add(userId);
+		increasePopularity(userId);
+	}
+	
+	private void increasePopularity(int userId) {
+		User newMember = SocialNetworkContext.getUserById(userId);
+		popularity += newMember.getPageRankPoints()/10;
 	}
 	
 	public void addTags(Tag... tags) {

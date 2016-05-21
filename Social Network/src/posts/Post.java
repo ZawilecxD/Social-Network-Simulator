@@ -47,24 +47,34 @@ public class Post {
 		int valueToUser = popularity + 50*numberOfCommonTags;
 		if(user.getFriends().contains(ownerID)) {
 			valueToUser = (int) Math.ceil(valueToUser * 1.5);
-		} else if(user.getRelatives().containsKey(ownerID)) {
+		} else if(user.getRelatives().contains(ownerID)) {
 			valueToUser *= 2;
 		}
 		return valueToUser;
 	}
 	
-	public void likeIt() {
+	public void likeIt(int likerPageRankPoints) {
 		likesCount++;
+		User owner = SocialNetworkContext.getUserById(ownerID);
+		owner.getPageRank().receivedLike(likerPageRankPoints);
 	}
 	
-	public void commentIt(int commenterId) {
+	public void commentIt(int commenterId, TypeOfResult result) {
 		commentersIDs.add(commenterId);
+		User commentTarget = SocialNetworkContext.getUserById(ownerID);
+		User commenter = SocialNetworkContext.getUserById(commenterId);
+		commentTarget.changeMoodByAnswerToComment(commenterId, result);
+		commentTarget.getPageRank().receivedComment(result, commenter.getPageRankPoints());
 	}
 	
 	public void answerToComment(int answerAuthorId, int targetedCommentAuthorId, TypeOfResult result) {
 		commentersIDs.add(answerAuthorId);
-		User answerTarget = SocialNetworkContext.getUsersMap().get(targetedCommentAuthorId);
+		User answerTarget = SocialNetworkContext.getUserById(targetedCommentAuthorId);
+		User postOwner = SocialNetworkContext.getUserById(ownerID);
+		User answerAuthor = SocialNetworkContext.getUserById(answerAuthorId);
 		answerTarget.changeMoodByAnswerToComment(answerAuthorId, result);
+		answerTarget.getPageRank().receivedComment(result, answerAuthor.getPageRankPoints());
+		postOwner.getPageRank().receivedComment(result, answerAuthor.getPageRankPoints());
 	}
 	
 	public void addTags(Tag... tags) {

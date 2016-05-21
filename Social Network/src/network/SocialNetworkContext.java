@@ -48,15 +48,18 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 		initIds();
 		initCollections();
 		
-		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("friends network", context, true);
+		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("friendships network", context, true);
 		netBuilder.buildNetwork();
 		
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		int usersNumber = (Integer) params.getValue("usersNumber");
 		
 		for(int i=0; i<usersNumber; i++) {
-			User newUser = new User(context, "Imie", "Nazwisko", Sex.MALE, UserCharacteristics.defaultCharacteristics());
+			User newUser = new User(context, Sex.MALE, UserCharacteristics.defaultCharacteristics());
 			context.add(newUser);
+			newUser.addToFavouriteTags(Tag.FOOD);
+			newUser.addToFavouriteTags(Tag.FOOTBALL);
+			newUser.addToFavouriteTags(Tag.ADVENTURE);
 			getUsersMap().put(newUser.getUserId(), newUser);
 		}
 
@@ -109,6 +112,10 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 	
 	public static Post getPostById(int id) {
 		return postsMap.get(id);
+	}
+	
+	public static Group getGroupById(int id) {
+		return groupsMap.get(id);
 	}
 	
 	public static int getUsersCount() {
