@@ -13,11 +13,11 @@ import user.User;
 
 public class Group {
 	
-	public @Getter int groupId;
-	public @Getter List<Integer> users; 
-	public @Getter int  ownerID;
-	public @Getter @Setter int popularity;
-	public @Getter ArrayList<Tag> tags;
+	private @Getter Integer groupId;
+	private @Getter List<Integer> users; 
+	private @Getter int  ownerID;
+	private @Getter @Setter int popularity;
+	private @Getter ArrayList<Tag> tags;
 
 	public Group(int ownerId) {
 		this.groupId = SocialNetworkContext.getNextGroupId();
@@ -53,9 +53,16 @@ public class Group {
 		return valueToUser;
 	}
 	
+	public void setStartingPopularity(int startingPopularity) {
+		this.popularity = startingPopularity;
+	}
+	
 	public void addUser(int userId) {
 		users.add(userId);
 		increasePopularity(userId);
+		User newMember = SocialNetworkContext.getUserById(userId);
+		User owner = SocialNetworkContext.getUserById(ownerID);
+		owner.getPageRank().userJoinedMyGroup(newMember.getPageRankPoints());
 	}
 	
 	private void increasePopularity(int userId) {

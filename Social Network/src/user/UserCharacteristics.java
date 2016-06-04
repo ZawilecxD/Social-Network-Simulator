@@ -9,13 +9,15 @@ public class UserCharacteristics {
 	private @Getter @Setter int commentRate; //defines a chance (1%-100%)  to comment
 	private @Getter @Setter int postRate; //defines a chance (1%-100%)  to post 
 	private @Getter @Setter int chatRate; //defines a chance (1%-100%)  to chat 
-	private @Getter @Setter int groupBelongRate;
-	private @Getter @Setter int eventParticipationRate;
-	private @Getter @Setter int assertiveness;
-	private @Getter @Setter int boardScrollRate; // useless??
+	private @Getter @Setter int groupBelongRate;//defines a chance (1%-100%)  to join group 
+	private @Getter @Setter int groupHostingRate;//defines a chance (1%-100%)  to create group 
+	private @Getter @Setter int eventParticipationRate;//defines a chance (1%-100%)  to join event
+	private @Getter @Setter int eventHostingRate;//defines a chance (1%-100%)  to create event 
+	private @Getter @Setter int assertiveness; //defines a chance (1-100%) to gain tag during chat
+	
 	
 	//how resistable is this person to negative interactions with others
-	//(the lower value the bigger chance positive stats will fall after negative reaction of others)
+	//(the lower value the bigger chance positive stats will fall after negative reaction of others or failed events)
 	private @Getter @Setter int toughness; 
 	
 	private @Getter @Setter int rageRate; //0-100 
@@ -39,8 +41,13 @@ public class UserCharacteristics {
 		characteristics.setMeetNewFriendsRate(50);
 		characteristics.setPostRate(50);
 		characteristics.setRageRate(10);
-		
+		characteristics.setEventHostingRate(50);
+		characteristics.setGroupHostingRate(50);
 		return characteristics;
+	}
+	
+	public void changeAverageMood(int value) {
+		dailyMood += value;
 	}
 	
 }

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="network.User"/>
-<fullyQualifiedTypeName name="repast.simphony.context.space.graph.NetworkBuilder"/>
 <fullyQualifiedTypeName name="repast.simphony.parameter.Parameters"/>
 <fullyQualifiedTypeName name="user.Sex"/>
-<fullyQualifiedTypeName name="user.User"/>
 <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
 <fullyQualifiedTypeName name="org.apache.log4j.BasicConfigurator"/>
 <fullyQualifiedTypeName name="network.Tag"/>
@@ -30,7 +28,23 @@
 <fullyQualifiedTypeName name="user.ActivityRank"/>
 <fullyQualifiedTypeName name="lombok.Getter"/>
 <fullyQualifiedTypeName name="java.lang.TypeNotPresentException"/>
-<fullyQualifiedTypeName name="network.TypeOfResult"/>
-<fullyQualifiedTypeName name="network.SocialNetworkContext"/>
+<fullyQualifiedTypeName name="user.User"/>
+<fullyQualifiedTypeName name="network.Group"/>
 <fullyQualifiedTypeName name="repast.simphony.random.RandomHelper"/>
+<fullyQualifiedTypeName name="network.TypeOfResult"/>
+<fullyQualifiedTypeName name="repast.simphony.space.grid.WrapAroundBorders"/>
+<fullyQualifiedTypeName name="repast.simphony.space.grid.GridPoint"/>
+<fullyQualifiedTypeName name="repast.simphony.util.ContextUtils"/>
+<fullyQualifiedTypeName name="repast.simphony.context.space.graph.NetworkBuilder"/>
+<fullyQualifiedTypeName name="repast.simphony.context.space.grid.GridFactoryFinder"/>
+<fullyQualifiedTypeName name="repast.simphony.space.grid.Grid"/>
+<fullyQualifiedTypeName name="repast.simphony.context.space.grid.GridFactory"/>
+<fullyQualifiedTypeName name="repast.simphony.space.grid.SimpleGridAdder"/>
+<fullyQualifiedTypeName name="repast.simphony.space.grid.GridBuilderParameters"/>
+<fullyQualifiedTypeName name="repast.simphony.space.continuous.RandomCartesianAdder"/>
+<fullyQualifiedTypeName name="repast.simphony.space.continuous.ContinuousSpace"/>
+<fullyQualifiedTypeName name="repast.simphony.context.space.continuous.ContinuousSpaceFactoryFinder"/>
+<fullyQualifiedTypeName name="repast.simphony.context.space.continuous.ContinuousSpaceFactory"/>
+<fullyQualifiedTypeName name="repast.simphony.space.continuous.NdPoint"/>
+<fullyQualifiedTypeName name="network.SocialNetworkContext"/>
 </qualifiedTypeNameHistroy>

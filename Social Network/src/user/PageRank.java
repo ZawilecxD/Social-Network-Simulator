@@ -10,9 +10,10 @@ public class PageRank {
 	private @Getter int receivedNegetiveComments;
 	private @Getter int receivedEventCompetitors;
 	private @Getter int receivedGroupsMembers;
+	private @Getter int succeededEvents;
 	
 	public PageRank() {
-		this.points = 0;
+		this.points = 1;
 		this.receivedLikes = 0;
 		this.receivedComments = 0;
 		this.receivedNegetiveComments = 0;
@@ -40,6 +41,11 @@ public class PageRank {
 	public void receivedLike(int likerPageRankPoints) {
 		receivedLikes++;
 		addPoints(likerPageRankPoints);
+	}
+	
+	public void eventSucceeded(int eventPopularity) {
+		succeededEvents++;
+		points += (int) Math.ceil(eventPopularity/100);
 	}
 	
 	public void userJoinedMyEvent(int joinerPageRankPoints) {

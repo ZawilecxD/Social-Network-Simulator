@@ -15,12 +15,22 @@ import org.apache.log4j.Logger;
 
 import posts.Post;
 import repast.simphony.context.Context;
+import repast.simphony.context.space.continuous.ContinuousSpaceFactory;
+import repast.simphony.context.space.continuous.ContinuousSpaceFactoryFinder;
 import repast.simphony.context.space.graph.NetworkBuilder;
+import repast.simphony.context.space.grid.GridFactory;
+import repast.simphony.context.space.grid.GridFactoryFinder;
 import repast.simphony.dataLoader.ContextBuilder;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
+import repast.simphony.space.continuous.ContinuousSpace;
+import repast.simphony.space.continuous.NdPoint;
+import repast.simphony.space.continuous.RandomCartesianAdder;
+import repast.simphony.space.grid.Grid;
+import repast.simphony.space.grid.GridBuilderParameters;
+import repast.simphony.space.grid.SimpleGridAdder;
 import user.Sex;
 import user.User;
 import user.UserCharacteristics;
@@ -31,6 +41,10 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 	public final static int MINIMAL_SESSION_TIME =  15; //minimum of 15 minutes (1 tick = 1 minute)
 	public final static int DAY_LENGTH_IN_TICKS = 1440; 
 	public final static int CHANCE_TO_MEET_RELATIVES = 5; //chance (in percents) to find relatives on fb
+	public final static int MINIMAL_FRIENDS_COUNT = 10;
+	public final static int MINIMAL_VALUE_OF_FRIEND = 1000;
+	public final static int MAX_EVENT_TIME = 5;
+	public final static int MAX_GROUPS_PER_OWNER = 3;
 	
 	private static AtomicInteger usersId;
 	private static AtomicInteger postsId;
@@ -40,13 +54,33 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 	private @Getter static HashMap<Integer, User> usersMap; 
 	private @Getter static HashMap<Integer, Post> postsMap; 
 	private @Getter static HashMap<Integer, Group> groupsMap; 
+	private @Getter static HashMap<Integer, Event> eventsMap; 
+	
+	private static Context mainContext;
+	
+	public static Context getMainContext() {
+		return mainContext;
+	}
 	
 	@Override
-	public Context<Object> build(Context<Object> context) {
-		BasicConfigurator.configure();
-		context.setId("SocialNetworkSimulation");
+	public Context build(Context<Object> context) {
+//		BasicConfigurator.configure();
+		context.setId("Social Network");
 		initIds();
 		initCollections();
+		
+		ContinuousSpaceFactory spaceFactory = ContinuousSpaceFactoryFinder.createContinuousSpaceFactory(null);
+		ContinuousSpace<Object> space = spaceFactory.createContinuousSpace("space", context, 
+				new RandomCartesianAdder <Object>(), 
+				new repast.simphony.space.continuous.WrapAroundBorders ()
+				, 50 , 50);
+		
+		GridFactory gridFactory = GridFactoryFinder.createGridFactory(null);
+		Grid<Object> grid = gridFactory.createGrid("grid", context, 
+				new GridBuilderParameters<Object>(new repast.simphony.space.grid.WrapAroundBorders(),
+				new SimpleGridAdder<Object>() ,
+				true , 50 , 50));
+		
 		
 		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("friendships network", context, true);
 		netBuilder.buildNetwork();
@@ -55,14 +89,20 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 		int usersNumber = (Integer) params.getValue("usersNumber");
 		
 		for(int i=0; i<usersNumber; i++) {
-			User newUser = new User(context, Sex.MALE, UserCharacteristics.defaultCharacteristics());
+			User newUser = new User(space, grid, Sex.MALE, UserCharacteristics.defaultCharacteristics());
 			context.add(newUser);
 			newUser.addToFavouriteTags(Tag.FOOD);
 			newUser.addToFavouriteTags(Tag.FOOTBALL);
 			newUser.addToFavouriteTags(Tag.ADVENTURE);
-			getUsersMap().put(newUser.getUserId(), newUser);
+			usersMap.put(newUser.getUserId(), newUser);
+		}
+		
+		for(Object obj : context) {
+			NdPoint point = space.getLocation(obj);
+			grid.moveTo(obj, (int)point.getX(), (int)point.getY());
 		}
 
+		mainContext = context;
 		return context;
 	}
 	
@@ -75,11 +115,17 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 		usersId.set(0);
 		postsId = new AtomicInteger();
 		postsId.set(0);
+		groupsId = new AtomicInteger();
+		groupsId.set(0);
+		eventsId = new AtomicInteger();
+		eventsId.set(0);
 	}
 	
 	private void initCollections() {
-		usersMap = new HashMap<Integer, User>();
-		postsMap = new HashMap<Integer, Post>();
+		usersMap = new HashMap<>();
+		postsMap = new HashMap<>();
+		groupsMap = new HashMap<>();
+		eventsMap = new HashMap<>();
 	}
 	
 	public static int getNextUserId() {
@@ -101,6 +147,14 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 	public static void addPost(Post post) {
 		postsMap.put(post.getPostId(), post);
 	}
+	
+	public static void addGroup(Group group) {
+		groupsMap.put(group.getGroupId(), group);
+	}
+	
+	public static void addEvent(Event event) {
+		eventsMap.put(event.getEventId(), event);
+	}
 
 	public static HashMap<Integer, User> getUsersMap() {
 		return usersMap;
@@ -116,6 +170,10 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 	
 	public static Group getGroupById(int id) {
 		return groupsMap.get(id);
+	}
+	
+	public static Event getEventById(int id) {
+		return eventsMap.get(id);
 	}
 	
 	public static int getUsersCount() {

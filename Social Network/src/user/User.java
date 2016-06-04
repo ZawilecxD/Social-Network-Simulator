@@ -18,7 +18,11 @@ import lombok.Getter;
 import repast.simphony.context.Context;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.random.RandomHelper;
+import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.graph.Network;
+import repast.simphony.space.grid.Grid;
+import repast.simphony.space.grid.GridPoint;
+import repast.simphony.util.ContextUtils;
 import network.Event;
 import network.Group;
 import network.SocialNetworkContext;
@@ -27,7 +31,9 @@ import network.TypeOfResult;
 
 public class User {
 	private final static Logger logger = Logger.getLogger(User.class);
-	private Context<Object> context;
+	private ContinuousSpace <Object> space;
+	private Grid<Object> grid;
+//	private Context<Object> context;
 	private @Getter int userId;
 	private @Getter Sex sex;
 	private @Getter boolean loggedIn;
@@ -44,6 +50,7 @@ public class User {
 	 * gdzie 10.0 to super nastawienie i chêæ kontaktu z innymi userami
 	 */
 	private @Getter double mood; 
+	private double sessionStartingMood;
 	
 	/**
 	 * Collection of friends userIds
@@ -64,12 +71,18 @@ public class User {
 	
 	private @Getter List<Integer> currentPostsIDs = new ArrayList<Integer>();
 	private @Getter List<Integer> alreadySeenPostsIDs = new ArrayList<Integer>();
+	private @Getter List<Integer> createdGroups = new ArrayList<Integer>();
+	private @Getter List<Integer> createdEvents = new ArrayList<Integer>();
 	
 	private @Getter List<Integer> interestingGroupsIDs = new ArrayList<Integer>();
+	private @Getter List<Integer> interestingEventsIDs = new ArrayList<Integer>();
 	private @Getter List<Integer> joinedGroupsIDs = new ArrayList<Integer>();
+	private @Getter List<Integer> joinedEventsIDs = new ArrayList<Integer>();
 	
-	public User(Context<Object> context, Sex sex, UserCharacteristics character) {
-		this.context = context;
+	public User(ContinuousSpace<Object> space, Grid<Object> grid, Sex sex, UserCharacteristics character) {
+		this.space = space;
+		this.grid = grid;
+//		this.context = SocialNetworkContext.getMainContext();
 		this.userId = SocialNetworkContext.getNextUserId();
 		this.sex = sex;
 		this.characteristics = character;
@@ -83,7 +96,6 @@ public class User {
 	
 	@ScheduledMethod(start = 1, interval = 1) //used only to synchronize Repast Simphony to increment ticks by '1'
 	public void checkSession() {
-		
 		if(loggedIn) {
 			currentSessionLength --;
 			if(currentSessionLength <= 0) {
@@ -110,10 +122,19 @@ public class User {
 			tryToPost();
 			tryToFindAFriend();
 			
+			tryToCreateEvent();
+			tryToCreateGroup();
+			
 			if(interestingGroupsIDs.isEmpty()) {
 				collectInterestingGroups();
-			} else {
+			} else if(!interestingGroupsIDs.isEmpty()){
 				tryToJoinGroup();
+			}
+			
+			if(interestingEventsIDs.isEmpty()) {
+				collectInterestingGroups();
+			} else if(!interestingGroupsIDs.isEmpty()){
+				tryToJoinEvent();
 			}
 			
 		} 
@@ -127,24 +148,27 @@ public class User {
 		} else {
 			mood = RandomHelper.nextDoubleFromTo(0.0, 5.0);
 		}
+		sessionStartingMood = mood;
 		collectInterestingPosts();
-//		collectInterestingGroups();
+		collectInterestingGroups();
+		collectInterestingEvents();
 		calculateSessionLength();
 		logger.debug(String.format("USER %s LOGGED IN, SESSION WILL LAST %d ticks", userId, currentSessionLength));
 	}
 	
 	private void tryToFindAFriend() {
-		if(RandomHelper.nextIntFromTo(1, 100) < characteristics.getMeetNewFriendsRate() && isInMood()) {
+		
+		if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getMeetNewFriendsRate() && isInMood()) {
 			
 			Comparator<User> byValueToUser = (user1, user2) -> Integer.compare(
 		            user1.calculateValueToUser(this), user2.calculateValueToUser(this));
 			
 			 List<User> notKnownUsers = SocialNetworkContext.getUsersMap().values().stream()
-			 	.filter(u -> !friends.contains(u.getUserId()))
-			 	.filter(u -> !Collections.disjoint(friends, u.getFriends()) || !Collections.disjoint(joinedGroupsIDs, u.getJoinedGroupsIDs()))
+			 	.filter(u -> !friends.contains(u.getUserId()) && !relatives.contains(u.getUserId()))
+//			 	.filter(u -> !Collections.disjoint(friends, u.getFriends()) || !Collections.disjoint(joinedGroupsIDs, u.getJoinedGroupsIDs()))
+			 	.filter(u -> isFriendshipPossible(u))
 			 	.sorted(byValueToUser.reversed())
 			 	.collect(Collectors.toList());
-			 
 			 if(!notKnownUsers.isEmpty()) {
 				User newFriend = notKnownUsers.get(0);
 				
@@ -157,6 +181,26 @@ public class User {
 		}
 	}
 	
+	private boolean isFriendshipPossible(User user) {
+		if(user.getUserId() == this.userId) {
+			return false;
+		}
+		
+		if(user.getFriends().size() < SocialNetworkContext.MINIMAL_FRIENDS_COUNT || this.friends.size() < SocialNetworkContext.MINIMAL_FRIENDS_COUNT) {
+			return true;
+		}
+		
+		if(!Collections.disjoint(friends, user.getFriends()) || !Collections.disjoint(relatives, user.getRelatives())) {
+			int value = user.calculateValueToUser(this);
+			if(value >= SocialNetworkContext.MINIMAL_VALUE_OF_FRIEND) {
+				return true;
+			}
+		}
+			
+		
+		return false;
+	}
+	
 	public int calculateValueToUser(User userEvaluatingMe) {
 		int numberOfCommonTags = CollectionUtils.intersection(favouriteTags, userEvaluatingMe.getFavouriteTags()).size();
 		int numberOfCommonFriends = CollectionUtils.intersection(friends, userEvaluatingMe.getFriends()).size();
@@ -165,13 +209,25 @@ public class User {
 		return valueToUser;
 	}
 	
-	private boolean isInMood() {
+	public boolean isInMood() {
 		return RandomHelper.nextIntFromTo(0, 10) < mood;
 	}
 	
 	public void tryToChat() {
 		if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getChatRate() && isInMood()) {
-			
+			if(RandomHelper.nextIntFromTo(0, 99) < 60) {
+				int randomIndex = RandomHelper.nextIntFromTo(0, relatives.size());
+				int chosenRelativeId = relatives.get(randomIndex);
+				User chatPartner = SocialNetworkContext.getUserById(chosenRelativeId);
+				chatWithUser(chatPartner);
+				chatPartner.chatWithUser(chatPartner);
+			} else {
+				int randomIndex = RandomHelper.nextIntFromTo(0, friends.size());
+				int chosenRelativeId = friends.get(randomIndex);
+				User chatPartner = SocialNetworkContext.getUserById(chosenRelativeId);
+				chatWithUser(chatPartner);
+				chatPartner.chatWithUser(chatPartner);
+			}
 		}
 	}
 	
@@ -180,6 +236,14 @@ public class User {
 			int chosenGroupId = interestingGroupsIDs.get(0); //id of the most interesting group at this time
 			Group chosenGroup = SocialNetworkContext.getGroupById(chosenGroupId);
 			joinGroup(chosenGroup);
+		}
+	}
+	
+	private void tryToJoinEvent() {
+		if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getEventParticipationRate() && isInMood()) {
+			int chosenEventId = interestingEventsIDs.get(0); //id of the most interesting group at this time
+			Event chosenEvent = SocialNetworkContext.getEventById(chosenEventId);
+			joinEvent(chosenEvent);
 		}
 	}
 	
@@ -217,10 +281,30 @@ public class User {
 		if(!currentPostsIDs.isEmpty()){
 			if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getLikeRate() && isInMood()) {
 				int postId = currentPostsIDs.get(0);
-				currentPostsIDs.remove(postId);
+				currentPostsIDs.remove(0);
 				alreadySeenPostsIDs.add(postId);
 				Post postToLike = SocialNetworkContext.getPostById(postId);
 				likePost(postToLike);
+			}
+		}
+	}
+	
+	private void tryToCreateGroup() {
+		if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getGroupHostingRate() && isInMood()
+				&& this.createdGroups.size() <= SocialNetworkContext.MAX_GROUPS_PER_OWNER)  {
+			createGroup();
+		}
+	}
+	
+	private void tryToCreateEvent() {
+		if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getEventHostingRate() && isInMood())  {
+			if(createdEvents.isEmpty()) {
+				createEvent();
+			} else {
+				int lastEventId = createdEvents.get(createdEvents.size()-1);
+				if(!SocialNetworkContext.getEventsMap().get(lastEventId).isActive()) {
+					createEvent();
+				}
 			}
 		}
 	}
@@ -237,7 +321,16 @@ public class User {
 	
 	public void logOut() {
 		logger.debug(String.format("USER %d LOGGED OUT", userId));
+		calculateSessionResults();
 		this.loggedIn = false;
+	}
+	
+	private void calculateSessionResults() {
+		if(mood < 0.7*sessionStartingMood) {
+			this.characteristics.changeAverageMood(-1);
+		} else if(sessionStartingMood < mood) {
+			this.characteristics.changeAverageMood(1);
+		}
 	}
 	
 	private void collectInterestingPosts() {
@@ -251,19 +344,41 @@ public class User {
 				.filter(p -> !(p.getOwnerID() == this.userId))
 				.sorted(byValueToUser.reversed())
 				.forEach(p -> currentPostsIDs.add(p.getPostId()));
-		logger.debug("TRIED AND GOT "+currentPostsIDs.size()+" POSTS!!!");
 	}
 	
 	private void collectInterestingGroups() {
+		this.interestingGroupsIDs.clear();
 		Comparator<Group> byValueToUser = (group1, group2) -> Integer.compare(
 				group1.calculateValueToUser(this), group2.calculateValueToUser(this));
 		
-		//we collect groups that have interesting tags or groupd owner is our friend or group has our friends in it
-		SocialNetworkContext.getGroupsMap().values().stream()
-				.filter(g -> (!joinedGroupsIDs.contains(g)))
-				.filter(g -> !Collections.disjoint(g.getTags(), favouriteTags) || friends.contains(g.ownerID) || !Collections.disjoint(friends, g.users))
-				.sorted(byValueToUser.reversed())
-				.forEach(g -> interestingGroupsIDs.add(g.getGroupId()));
+		if(!SocialNetworkContext.getGroupsMap().isEmpty()) {
+			//we collect groups that have interesting tags or group owner is our friend or group has our friends in it
+			SocialNetworkContext.getGroupsMap().values().stream()
+			.filter(g -> (!joinedGroupsIDs.contains(g)))
+			.filter(g -> !createdGroups.contains(g.getGroupId()))
+			.filter(g -> !Collections.disjoint(g.getTags(), favouriteTags) || friends.contains(g.getOwnerID())
+					|| relatives.contains(g.getOwnerID()) || !Collections.disjoint(friends, g.getUsers()))
+			.sorted(byValueToUser.reversed())
+			.forEach(g -> interestingGroupsIDs.add(g.getGroupId()));
+		}
+	}
+	
+	private void collectInterestingEvents() {
+		this.interestingEventsIDs.clear();
+		Comparator<Event> byValueToUser = (event1, event2) -> Integer.compare(
+				event1.calculateValueToUser(this), event2.calculateValueToUser(this));
+		
+		if(!SocialNetworkContext.getEventsMap().isEmpty()) {
+			//we collect events that have interesting tags or event owner is our friend or event has our friends in it
+			SocialNetworkContext.getEventsMap().values().stream()
+					.filter(e -> (!joinedEventsIDs.contains(e.getEventId())))
+					.filter(e -> e.isActive())
+					.filter(e -> !createdEvents.contains(e.getEventId()))
+					.filter(e ->  friends.contains(e.getOwnerID()) || relatives.contains(e.getOwnerID()) || !Collections.disjoint(friends, e.getParticipantsIDs()))
+					.sorted(byValueToUser.reversed())
+					.forEach(e -> interestingEventsIDs.add(e.getEventId()));
+		}
+
 	}
 	
 	
@@ -271,6 +386,7 @@ public class User {
 		logger.debug(String.format("NEW FRIENDSHIP: %s AND %s", userId, newFriend.getUserId()));
 		friends.add(newFriend.getUserId());
 		newFriend.justAddFriendId(userId);
+		Context<Object> context = ContextUtils.getContext(this);
 		Network<Object> friendshipNetwork = (Network<Object>) context.getProjection("friendships network");
 		friendshipNetwork.addEdge(this, newFriend);
 	}
@@ -279,6 +395,7 @@ public class User {
 		logger.debug(String.format("NEW FRIENDSHIP(Relatives): %s AND %s", userId, newRelative.getUserId()));
 		relatives.add(newRelative.getUserId());
 		newRelative.justAddRelative(userId);
+		Context<Object> context = ContextUtils.getContext(this);
 		Network<Object> friendshipNetwork = (Network<Object>) context.getProjection("friendships network");
 		friendshipNetwork.addEdge(this, newRelative);
 	}
@@ -344,12 +461,14 @@ public class User {
 	}
 	
 	private void answerPostComment(Post post) {
-		int randomIndex = RandomHelper.nextIntFromTo(0, post.getCommentersIDs().size()-1);
-		int targettedCommentAuthor = post.getCommentersIDs().get(randomIndex);
-		TypeOfResult commentResult = calculateResult();
-		post.answerToComment(userId, targettedCommentAuthor, commentResult);
-		activityRank.gaveComment(commentResult);
-		logger.debug(String.format("USER %s ANSWERED COMMENT OF USER %s", userId, targettedCommentAuthor));
+		if(!post.getCommentersIDs().isEmpty()) {
+			int randomIndex = RandomHelper.nextIntFromTo(0, post.getCommentersIDs().size()-1);
+			int targettedCommentAuthor = post.getCommentersIDs().get(randomIndex);
+			TypeOfResult commentResult = calculateResult();
+			post.answerToComment(userId, targettedCommentAuthor, commentResult);
+			activityRank.gaveComment(commentResult);
+			logger.debug(String.format("USER %s ANSWERED COMMENT OF USER %s", userId, targettedCommentAuthor));
+		}
 	}
 	
 	public void commentPost(Post post){
@@ -359,10 +478,66 @@ public class User {
 		logger.debug(String.format("USER %s COMMENTED POST  %s", userId, post.getPostId()));
 	}
 	
+	public void chatWithUser(User chatPartner) {
+		if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getAssertiveness()) {
+			List<Tag> tagsToGain = chatPartner.getFavouriteTags().stream()
+					.filter(t -> !favouriteTags.contains(t)).collect(Collectors.toList());
+			if(!tagsToGain.isEmpty()) {
+				int randomIndex = RandomHelper.nextIntFromTo(0, tagsToGain.size() - 1);
+				Tag tagToGain = tagsToGain.get(randomIndex);
+				addToFavouriteTags(tagToGain);
+			}
+		}
+		
+		this.changeMoodByChatResult(chatPartner, chatResultForUser());		
+	}
+	
+	private TypeOfResult chatResultForUser() {
+		int randomResult = RandomHelper.nextIntFromTo(1, 3);
+		TypeOfResult chatResult = TypeOfResult.NEUTRAL;
+		switch(randomResult) {
+		case 1:
+			chatResult = TypeOfResult.POSITIVE;
+			break;
+		case 2:
+			chatResult = TypeOfResult.NEGATIVE;
+			break;
+		}
+		
+		return chatResult;
+	}
+		
+	
 	public void likePost(Post post){
 		post.likeIt(getPageRankPoints());
 		activityRank.gaveLike();
 		logger.debug(String.format("USER %s LIKED POST  %s", userId, post.getPostId()));
+	}
+	
+	public void changeMoodByEvent(int eventId, TypeOfResult eventResult) {
+		Event event = SocialNetworkContext.getEventById(eventId);
+		switch(eventResult) {
+		case NEGATIVE:
+			eventMoodChange(event.calculateValueToUser(this), -1);
+			break;
+		case POSITIVE:
+			eventMoodChange(event.calculateValueToUser(this), 1);
+			break; 
+		}
+	}
+	
+	public void changeMoodByChatResult(User chatPartner, TypeOfResult chatResult) {
+		switch(chatResult) {
+		case NEGATIVE:
+			chatMoodChange(calculateValueToUser(chatPartner), chatPartner.calculateValueToUser(this), -1);
+			break;
+		case NEUTRAL:
+			chatMoodChange(calculateValueToUser(chatPartner), chatPartner.calculateValueToUser(this), 1/3);
+			break;
+		case POSITIVE:
+			chatMoodChange(calculateValueToUser(chatPartner), chatPartner.calculateValueToUser(this), 1);
+			break; 
+		}
 	}
 	
 	public void changeMoodByAnswerToComment(int answerAuthorId, TypeOfResult answerResult) {
@@ -399,32 +574,106 @@ public class User {
 		if(mood > 10.0) {
 			mood = 10.0;
 		}
+		
+		if(mood < 0) {
+			mood = 0;
+		}
 	}
 	
-	
-	public void removeFriend(){
+	private void chatMoodChange(int valueOfChatPartner, int ourValueToChatPartner, double resultModifier) {
+		mood += (Math.ceil(valueOfChatPartner/ourValueToChatPartner*10)) * resultModifier;
 		
+		if(mood > 10.0) {
+			mood = 10.0;
+		}
+		
+		if(mood < 0) {
+			mood = 0;
+		}
 	}
 	
-	public void chatWithFriend(){
+	private void eventMoodChange(int valueOfEventToUser, double resultModifier) {
+		int value = (int) (Math.ceil(valueOfEventToUser/1000));
+		if(value < 1) value = 1;
 		
+		mood += value * resultModifier;
+
+		
+		if(mood > 10.0) {
+			mood = 10.0;
+		}
+		
+		if(mood < 0) {
+			mood = 0;
+		}
 	}
 
 	public void createGroup(){
+		Group createdGroup = new Group(userId);
+		List<Tag> tagsToAdd = new ArrayList<>();
 		
+		for(Tag tag : this.getFavouriteTags()) {
+			if(RandomHelper.nextIntFromTo(1,2) == 1) {
+				tagsToAdd.add(tag);
+			}
+		}
+			
+		if(tagsToAdd.isEmpty()) {
+			int randomIndex = RandomHelper.nextIntFromTo(0, favouriteTags.size()-1);
+			tagsToAdd.add(favouriteTags.get(randomIndex));
+		}
+		
+		Tag[] tags = new Tag[tagsToAdd.size()];
+		tagsToAdd.toArray(tags);
+		int startingPopularity = (int) Math.ceil(pageRank.getPoints()/10);
+		createdGroup.setStartingPopularity(startingPopularity);
+		createdGroup.addTags(tags);
+		
+		SocialNetworkContext.addGroup(createdGroup);
+		this.createdGroups.add(createdGroup.getGroupId());
+		this.activityRank.createdGroup();
 	}
 	
 	public void createEvent(){
+		Event createdEvent = new Event(userId);
+		List<Tag> tagsToAdd = new ArrayList<Tag>();
 		
+		for(Tag tag : this.getFavouriteTags()) {
+			if(RandomHelper.nextIntFromTo(1,2) == 1) {
+				tagsToAdd.add(tag);
+			}
+		}
+			
+		if(tagsToAdd.isEmpty()) {
+			int randomIndex = RandomHelper.nextIntFromTo(0, favouriteTags.size()-1);
+			tagsToAdd.add(favouriteTags.get(randomIndex));
+		}
+		
+		Tag[] tags = new Tag[tagsToAdd.size()];
+		tagsToAdd.toArray(tags);
+		
+		int startingPopularity = (int) Math.ceil(pageRank.getPoints()/10);
+		createdEvent.setStartingPopularity(startingPopularity);
+		createdEvent.addTags(tags);
+		
+		SocialNetworkContext.addEvent(createdEvent);
+		this.createdEvents.add(createdEvent.getEventId());
+		this.activityRank.createdEvent();
 	}
 	
 	public void joinGroup(Group group){
-		group.addUser(userId);
-		joinedGroupsIDs.add(group.getGroupId());
+		if(!joinedGroupsIDs.contains(group.getGroupId())) {
+			group.addUser(userId);
+			joinedGroupsIDs.add(group.getGroupId());
+		}
+		
 	}
 	
 	public void joinEvent(Event event){
-		
+		if(!joinedEventsIDs.contains(event.getEventId())) {
+			event.addUser(userId);
+			joinedEventsIDs.add(event.getEventId());
+		}
 	}
 	
 	public void increasePageRank(int anotherUserPageRank) {
