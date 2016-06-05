@@ -47,13 +47,15 @@ public class Event {
 		System.out.println("finiszuje "+eventId);
 		this.active = false;
 		TypeOfResult eventResult = calculateEventResult();
+		User owner = SocialNetworkContext.getUserById(ownerID);
 		if(eventResult == TypeOfResult.POSITIVE) {
-			User owner = SocialNetworkContext.getUserById(ownerID);
 			owner.getPageRank().eventSucceeded(popularity);
+		} else {
+			owner.changeMoodByEvent(eventId, eventResult, true);
 		}
 		for(Integer userId : participantsIDs) {
 			User participant = SocialNetworkContext.getUserById(userId);
-			participant.changeMoodByEvent(eventId, eventResult);
+			participant.changeMoodByEvent(eventId, eventResult, false);
 		}
 	}
 	

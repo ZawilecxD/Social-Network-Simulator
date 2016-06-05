@@ -63,7 +63,7 @@ public class Post {
 		commentersIDs.add(commenterId);
 		User commentTarget = SocialNetworkContext.getUserById(ownerID);
 		User commenter = SocialNetworkContext.getUserById(commenterId);
-		commentTarget.changeMoodByAnswerToComment(commenterId, result);
+		commentTarget.changeMoodByAnswerToComment(commenterId, result, true);
 		commentTarget.getPageRank().receivedComment(result, commenter.getPageRankPoints());
 	}
 	
@@ -72,7 +72,7 @@ public class Post {
 		User answerTarget = SocialNetworkContext.getUserById(targetedCommentAuthorId);
 		User postOwner = SocialNetworkContext.getUserById(ownerID);
 		User answerAuthor = SocialNetworkContext.getUserById(answerAuthorId);
-		answerTarget.changeMoodByAnswerToComment(answerAuthorId, result);
+		answerTarget.changeMoodByAnswerToComment(answerAuthorId, result, false);
 		answerTarget.getPageRank().receivedComment(result, answerAuthor.getPageRankPoints());
 		postOwner.getPageRank().receivedComment(result, answerAuthor.getPageRankPoints());
 	}

@@ -16,9 +16,9 @@ public class UserCharacteristics {
 	private @Getter @Setter int assertiveness; //defines a chance (1-100%) to gain tag during chat
 	
 	
-	//how resistable is this person to negative interactions with others
-	//(the lower value the bigger chance positive stats will fall after negative reaction of others or failed events)
-	private @Getter @Setter int toughness; 
+	//how vulnerable is this person to negative interactions with others
+	//(the higher value the bigger chance positive stats will fall after negative reaction of others or failed events)
+	private @Getter @Setter int vulnerability; 
 	
 	private @Getter @Setter int rageRate; //0-100 
 	private @Getter @Setter int dailyMood; //0-100 chance to gain starting mood (at login) that is 5 or greater
@@ -48,6 +48,26 @@ public class UserCharacteristics {
 	
 	public void changeAverageMood(int value) {
 		dailyMood += value;
+	}
+	
+	public void changeEventParticipationRate(int value) {
+		eventParticipationRate += value;
+	}
+	
+	public void changeChatRate(int value) {
+		chatRate += value;
+	}
+	
+	public void changeCommentRate(int value) {
+		commentRate += value;
+	}
+	
+	public void changePostRate(int value) {
+		postRate += value;
+	}
+	
+	public void changeEventHostingRate(int value) {
+		eventHostingRate += value;
 	}
 	
 }

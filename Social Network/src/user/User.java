@@ -514,14 +514,14 @@ public class User {
 		logger.debug(String.format("USER %s LIKED POST  %s", userId, post.getPostId()));
 	}
 	
-	public void changeMoodByEvent(int eventId, TypeOfResult eventResult) {
+	public void changeMoodByEvent(int eventId, TypeOfResult eventResult, boolean isEventMine) {
 		Event event = SocialNetworkContext.getEventById(eventId);
 		switch(eventResult) {
 		case NEGATIVE:
-			eventMoodChange(event.calculateValueToUser(this), -1);
+			eventMoodChange(event.calculateValueToUser(this), -1, isEventMine);
 			break;
 		case POSITIVE:
-			eventMoodChange(event.calculateValueToUser(this), 1);
+			eventMoodChange(event.calculateValueToUser(this), 1, isEventMine);
 			break; 
 		}
 	}
@@ -540,7 +540,7 @@ public class User {
 		}
 	}
 	
-	public void changeMoodByAnswerToComment(int answerAuthorId, TypeOfResult answerResult) {
+	public void changeMoodByAnswerToComment(int answerAuthorId, TypeOfResult answerResult, boolean isMyPost) {
 		User authorOfTheAnswer = SocialNetworkContext.getUserById(answerAuthorId);
         double differenceInPageRanks = authorOfTheAnswer.getPageRank().getPoints() - pageRank.getPoints();
         double usersAttitude = 1;
@@ -552,25 +552,37 @@ public class User {
 		switch(answerResult) {
 		case NEGATIVE:
 			//negative answer means worse mood
-			answerMoodChange(differenceInPageRanks, -1, usersAttitude);
+			answerMoodChange(differenceInPageRanks, -1, usersAttitude, isMyPost);
 			break;
 		case NEUTRAL:
 			//somebody answered so we get some pageRank (3 times less than with POSITIVE scenario)
-			answerMoodChange(differenceInPageRanks, 1/3, usersAttitude);
+			answerMoodChange(differenceInPageRanks, 1/3, usersAttitude, isMyPost);
 			break;
 		case POSITIVE:
 			//we got positive answer so our mood profits
-			answerMoodChange(differenceInPageRanks, 1, usersAttitude);
+			answerMoodChange(differenceInPageRanks, 1, usersAttitude, isMyPost);
 			break; 
 		}
 	}
 	
-	private void answerMoodChange(double differenceInPageRanks, double resultModifier, double attitude) {
+	private void answerMoodChange(double differenceInPageRanks, double resultModifier, double attitude, boolean isMyPost) {
 		if(differenceInPageRanks > 0) {
 			mood += (Math.ceil(differenceInPageRanks/(pageRank.getPoints()*10))) * resultModifier * attitude;
 		}else {
 			mood += 0.1 * attitude * resultModifier;
 		}
+		
+		if(isMyPost) {
+			if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getVulnerability()) {
+				characteristics.changePostRate((int) resultModifier);
+			}
+		} else {
+			if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getVulnerability()) {
+				characteristics.changeCommentRate((int) resultModifier);
+			}
+		}
+		
+		
 		if(mood > 10.0) {
 			mood = 10.0;
 		}
@@ -583,6 +595,10 @@ public class User {
 	private void chatMoodChange(int valueOfChatPartner, int ourValueToChatPartner, double resultModifier) {
 		mood += (Math.ceil(valueOfChatPartner/ourValueToChatPartner*10)) * resultModifier;
 		
+		if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getVulnerability()) {
+			characteristics.changeChatRate((int) resultModifier);
+		}
+		
 		if(mood > 10.0) {
 			mood = 10.0;
 		}
@@ -592,12 +608,22 @@ public class User {
 		}
 	}
 	
-	private void eventMoodChange(int valueOfEventToUser, double resultModifier) {
+	private void eventMoodChange(int valueOfEventToUser, double resultModifier, boolean isEventMine) {
 		int value = (int) (Math.ceil(valueOfEventToUser/1000));
 		if(value < 1) value = 1;
 		
 		mood += value * resultModifier;
 
+		if(isEventMine) {
+			if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getVulnerability()) {
+				characteristics.changeEventHostingRate((int) resultModifier);
+			}
+		} else {
+			if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getVulnerability()) {
+				characteristics.changeEventParticipationRate((int) resultModifier);
+			}
+		}
+		
 		
 		if(mood > 10.0) {
 			mood = 10.0;
