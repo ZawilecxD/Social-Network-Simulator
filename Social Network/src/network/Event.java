@@ -43,6 +43,7 @@ public class Event {
 		User owner = SocialNetworkContext.getUserById(ownerID);
 		if(eventResult == TypeOfResult.POSITIVE) {
 			owner.getPageRank().eventSucceeded(popularity);
+			owner.getActivityRank().eventEndUpSuccess();
 		} else {
 			owner.changeMoodByEvent(eventId, eventResult, true);
 		}
@@ -60,7 +61,7 @@ public class Event {
 				chanceToFail += (int) Math.ceil(100/participantsIDs.size());
 			}
 		}
-		
+		System.out.println("CHANCE TO FAIL="+chanceToFail);
 		if(RandomHelper.nextIntFromTo(0, 99) < chanceToFail) {
 			return TypeOfResult.NEGATIVE;
 		} else {
