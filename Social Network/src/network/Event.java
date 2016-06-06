@@ -36,15 +36,8 @@ public class Event {
 		System.out.println(eventId+ " konczy sie o  " + endTick);
 	}
 	
-	@ScheduledMethod(start = 1, interval = 10) 
-	private void checkIfShouldHaveEnded() {
-		if(SocialNetworkContext.getCurrentTick() >= endTick) {
-			finishThisEvent();
-		}
-	}
-	
-	private void finishThisEvent() {
-		System.out.println("finiszuje "+eventId);
+	public void finishThisEvent() {
+		System.out.println("finiszuje "+eventId+" w ticku nr "+SocialNetworkContext.getCurrentTick() );
 		this.active = false;
 		TypeOfResult eventResult = calculateEventResult();
 		User owner = SocialNetworkContext.getUserById(ownerID);

@@ -45,6 +45,9 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 	public final static int MINIMAL_VALUE_OF_FRIEND = 1000;
 	public final static int MAX_EVENT_TIME = 5;
 	public final static int MAX_GROUPS_PER_OWNER = 3;
+	public final static int MAX_FOUND_GROUPS = 50;
+	public final static int MAX_FOUND_POSTS = 50;
+	public final static int MAX_FOUND_EVENTS = 25;
 	
 	private static AtomicInteger usersId;
 	private static AtomicInteger postsId;

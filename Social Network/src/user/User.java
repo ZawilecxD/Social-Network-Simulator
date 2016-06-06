@@ -94,7 +94,7 @@ public class User {
 		this.events = new ArrayList<Integer>();
 	}
 	
-	@ScheduledMethod(start = 1, interval = 1) //used only to synchronize Repast Simphony to increment ticks by '1'
+	@ScheduledMethod(start = 1, interval = 1) //used to synchronize Repast Simphony to increment ticks by '1'
 	public void checkSession() {
 		if(loggedIn) {
 			currentSessionLength --;
@@ -112,6 +112,9 @@ public class User {
 	@ScheduledMethod(start = 1, interval = 10) //action every 10minutes
 	public void sessionActions() {
 		if(loggedIn) {
+			
+			checkMyActiveEventStatus();
+			
 			if(currentPostsIDs.isEmpty()) {
 				collectInterestingPosts();
 			} else {
@@ -139,6 +142,17 @@ public class User {
 			
 		} 
 		
+	}
+	
+	private void checkMyActiveEventStatus() {
+		if(createdEvents.size() < 1) {
+			return;
+		}
+		
+		Event event = SocialNetworkContext.getEventById(createdEvents.get(createdEvents.size()-1));
+		if(SocialNetworkContext.getCurrentTick() >= event.getEndTick() && event.isActive()) {
+			event.finishThisEvent();
+		}
 	}
 	
 	public void logIn() {
@@ -342,6 +356,7 @@ public class User {
 				.filter(p -> (!currentPostsIDs.contains(p) && !alreadySeenPostsIDs.contains(p)))
 				.filter(p -> !Collections.disjoint(p.getTags(), favouriteTags) || friends.contains(p.getOwnerID()))
 				.filter(p -> !(p.getOwnerID() == this.userId))
+				.limit(SocialNetworkContext.MAX_FOUND_POSTS)
 				.sorted(byValueToUser.reversed())
 				.forEach(p -> currentPostsIDs.add(p.getPostId()));
 	}
@@ -358,6 +373,7 @@ public class User {
 			.filter(g -> !createdGroups.contains(g.getGroupId()))
 			.filter(g -> !Collections.disjoint(g.getTags(), favouriteTags) || friends.contains(g.getOwnerID())
 					|| relatives.contains(g.getOwnerID()) || !Collections.disjoint(friends, g.getUsers()))
+			.limit(SocialNetworkContext.MAX_FOUND_GROUPS)
 			.sorted(byValueToUser.reversed())
 			.forEach(g -> interestingGroupsIDs.add(g.getGroupId()));
 		}
@@ -375,6 +391,7 @@ public class User {
 					.filter(e -> e.isActive())
 					.filter(e -> !createdEvents.contains(e.getEventId()))
 					.filter(e ->  friends.contains(e.getOwnerID()) || relatives.contains(e.getOwnerID()) || !Collections.disjoint(friends, e.getParticipantsIDs()))
+					.limit(SocialNetworkContext.MAX_FOUND_EVENTS)
 					.sorted(byValueToUser.reversed())
 					.forEach(e -> interestingEventsIDs.add(e.getEventId()));
 		}
@@ -486,6 +503,27 @@ public class User {
 				int randomIndex = RandomHelper.nextIntFromTo(0, tagsToGain.size() - 1);
 				Tag tagToGain = tagsToGain.get(randomIndex);
 				addToFavouriteTags(tagToGain);
+			}
+		}
+		
+		if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getAssertiveness()) {
+			List<Integer> groupsToGain = chatPartner.getJoinedGroupsIDs().stream()
+					.filter(g -> !joinedGroupsIDs.contains(g)).collect(Collectors.toList());
+			if(!groupsToGain.isEmpty()) {
+				int randomIndex = RandomHelper.nextIntFromTo(0, groupsToGain.size() - 1);
+				Group groupToGain =SocialNetworkContext.getGroupById(groupsToGain.get(randomIndex)) ;
+				joinGroup(groupToGain);
+			}
+		}
+		
+
+		if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getAssertiveness()) {
+			List<Integer> eventsToGain = chatPartner.getJoinedEventsIDs().stream()
+					.filter(e -> !joinedEventsIDs.contains(e)).collect(Collectors.toList());
+			if(!eventsToGain.isEmpty()) {
+				int randomIndex = RandomHelper.nextIntFromTo(0, eventsToGain.size() - 1);
+				Event eventToGain = SocialNetworkContext.getEventById(eventsToGain.get(randomIndex)) ;
+				joinEvent(eventToGain);
 			}
 		}
 		
@@ -613,7 +651,7 @@ public class User {
 		if(value < 1) value = 1;
 		
 		mood += value * resultModifier;
-
+		
 		if(isEventMine) {
 			if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getVulnerability()) {
 				characteristics.changeEventHostingRate((int) resultModifier);
@@ -696,7 +734,7 @@ public class User {
 	}
 	
 	public void joinEvent(Event event){
-		if(!joinedEventsIDs.contains(event.getEventId())) {
+		if(!joinedEventsIDs.contains(event.getEventId()) && event.isActive()) {
 			event.addUser(userId);
 			joinedEventsIDs.add(event.getEventId());
 		}
