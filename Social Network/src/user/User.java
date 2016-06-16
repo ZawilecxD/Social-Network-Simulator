@@ -124,7 +124,7 @@ public class User {
 			tryToAnswerCommentInAlreadySeenPost();
 			tryToPost();
 			tryToFindAFriend();
-			
+			tryToChat();
 			tryToCreateEvent();
 			tryToCreateGroup();
 			
@@ -160,7 +160,7 @@ public class User {
 		if(RandomHelper.nextIntFromTo(0, 100) <= characteristics.getDailyMood()) {
 			mood = RandomHelper.nextDoubleFromTo(5.0, 10.0);
 		} else {
-			mood = RandomHelper.nextDoubleFromTo(0.0, 5.0);
+			mood = RandomHelper.nextDoubleFromTo(2.0, 5.0);
 		}
 		sessionStartingMood = mood;
 		collectInterestingPosts();
@@ -224,19 +224,19 @@ public class User {
 	}
 	
 	public boolean isInMood() {
-		return RandomHelper.nextIntFromTo(0, 10) < mood;
+		return RandomHelper.nextIntFromTo(0, 7) < mood;
 	}
 	
 	public void tryToChat() {
 		if(RandomHelper.nextIntFromTo(0, 99) < characteristics.getChatRate() && isInMood()) {
-			if(RandomHelper.nextIntFromTo(0, 99) < 60) {
-				int randomIndex = RandomHelper.nextIntFromTo(0, relatives.size());
+			if(RandomHelper.nextIntFromTo(0, 99) < 60 && !relatives.isEmpty()) {
+				int randomIndex = RandomHelper.nextIntFromTo(0, relatives.size()-1);
 				int chosenRelativeId = relatives.get(randomIndex);
 				User chatPartner = SocialNetworkContext.getUserById(chosenRelativeId);
 				chatWithUser(chatPartner);
 				chatPartner.chatWithUser(chatPartner);
-			} else {
-				int randomIndex = RandomHelper.nextIntFromTo(0, friends.size());
+			} else if(!friends.isEmpty()) {
+				int randomIndex = RandomHelper.nextIntFromTo(0, friends.size()-1);
 				int chosenRelativeId = friends.get(randomIndex);
 				User chatPartner = SocialNetworkContext.getUserById(chosenRelativeId);
 				chatWithUser(chatPartner);
@@ -530,7 +530,7 @@ public class User {
 		this.changeMoodByChatResult(chatPartner, chatResultForUser());		
 	}
 	
-	private TypeOfResult chatResultForUser() {
+	private TypeOfResult chatResultForUser() { //TODO make it depend on the rage characteristic
 		int randomResult = RandomHelper.nextIntFromTo(1, 3);
 		TypeOfResult chatResult = TypeOfResult.NEUTRAL;
 		switch(randomResult) {
@@ -625,8 +625,8 @@ public class User {
 			mood = 10.0;
 		}
 		
-		if(mood < 0) {
-			mood = 0;
+		if(mood < 2) {
+			mood = 2;
 		}
 	}
 	
@@ -641,8 +641,8 @@ public class User {
 			mood = 10.0;
 		}
 		
-		if(mood < 0) {
-			mood = 0;
+		if(mood < 2) {
+			mood = 2;
 		}
 	}
 	
@@ -667,8 +667,8 @@ public class User {
 			mood = 10.0;
 		}
 		
-		if(mood < 0) {
-			mood = 0;
+		if(mood < 2) {
+			mood = 2;
 		}
 	}
 

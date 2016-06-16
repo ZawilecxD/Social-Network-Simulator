@@ -30,11 +30,11 @@ public class UserCharacteristics {
 
 	public static UserCharacteristics defaultCharacteristics() {
 		UserCharacteristics characteristics = new UserCharacteristics();
-		characteristics.setAssertiveness(10);
+		characteristics.setAssertiveness(100);
 		characteristics.setAverageDailySessionLength(100);
 		characteristics.setCommentRate(50);
 		characteristics.setDailyMood(5);
-		characteristics.setChatRate(50);
+		characteristics.setChatRate(100);
 		characteristics.setEventParticipationRate(50);
 		characteristics.setGroupBelongRate(50);
 		characteristics.setLikeRate(50);

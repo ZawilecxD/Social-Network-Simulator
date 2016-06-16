@@ -33,11 +33,9 @@ public class Event {
 		//event will last random number of days 
 		this.endTick = SocialNetworkContext.getCurrentTick() 
 				+ (RandomHelper.nextIntFromTo(1, SocialNetworkContext.MAX_EVENT_TIME) * SocialNetworkContext.DAY_LENGTH_IN_TICKS); 
-		System.out.println(eventId+ " konczy sie o  " + endTick);
 	}
 	
 	public void finishThisEvent() {
-		System.out.println("finiszuje "+eventId+" w ticku nr "+SocialNetworkContext.getCurrentTick() );
 		this.active = false;
 		TypeOfResult eventResult = calculateEventResult();
 		User owner = SocialNetworkContext.getUserById(ownerID);
@@ -61,7 +59,6 @@ public class Event {
 				chanceToFail += (int) Math.ceil(100/participantsIDs.size());
 			}
 		}
-		System.out.println("CHANCE TO FAIL="+chanceToFail);
 		if(RandomHelper.nextIntFromTo(0, 99) < chanceToFail) {
 			return TypeOfResult.NEGATIVE;
 		} else {

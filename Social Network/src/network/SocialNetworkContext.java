@@ -25,6 +25,7 @@ import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
+import repast.simphony.random.RandomHelper;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.continuous.RandomCartesianAdder;
@@ -94,9 +95,17 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 		for(int i=0; i<usersNumber; i++) {
 			User newUser = new User(space, grid, Sex.MALE, UserCharacteristics.defaultCharacteristics());
 			context.add(newUser);
-			newUser.addToFavouriteTags(Tag.FOOD);
-			newUser.addToFavouriteTags(Tag.FOOTBALL);
-			newUser.addToFavouriteTags(Tag.ADVENTURE);
+			int randomIndex = RandomHelper.nextIntFromTo(0, 2);
+			if(randomIndex == 0) {
+				newUser.addToFavouriteTags(Tag.FOOD);
+
+			} else if(randomIndex == 1) {
+				newUser.addToFavouriteTags(Tag.FOOTBALL);
+
+			} else {
+				newUser.addToFavouriteTags(Tag.ADVENTURE);
+
+			}
 			usersMap.put(newUser.getUserId(), newUser);
 		}
 		
