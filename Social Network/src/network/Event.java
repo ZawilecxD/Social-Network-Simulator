@@ -32,7 +32,7 @@ public class Event {
 		
 		//event will last random number of days 
 		this.endTick = SocialNetworkContext.getCurrentTick() 
-				+ (RandomHelper.nextIntFromTo(1, SocialNetworkContext.MAX_EVENT_TIME) * SocialNetworkContext.DAY_LENGTH_IN_TICKS); 
+				+ (RandomHelper.nextIntFromTo(1, SocialNetworkContext.MAX_EVENT_TIME) * SocialNetworkContext.DAY_LENGTH_IN_TICKS);
 	}
 	
 	public void finishThisEvent() {

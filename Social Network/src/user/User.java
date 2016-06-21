@@ -41,13 +41,13 @@ public class User {
 	private @Getter ActivityRank activityRank;
 
 	/**
-	 * Cechy charakteru definiuj¹ce danego user'a i jego chêæ do wykonywania ró¿nych akcji
+	 * Cechy charakteru definiujï¿½ce danego user'a i jego chï¿½ï¿½ do wykonywania rï¿½nych akcji
 	 */
 	private @Getter UserCharacteristics characteristics;
 	
 	/**
-	 * Ustatalany ka¿dorazowo przy zalogowaniu do servisu, powiedzmy ¿e ma wartoœci miêdzy 0.0-10.0 
-	 * gdzie 10.0 to super nastawienie i chêæ kontaktu z innymi userami
+	 * Ustatalany kaï¿½dorazowo przy zalogowaniu do servisu, powiedzmy ï¿½e ma wartoï¿½ci miï¿½dzy 0.0-10.0 
+	 * gdzie 10.0 to super nastawienie i chï¿½ï¿½ kontaktu z innymi userami
 	 */
 	private @Getter double mood; 
 	private double sessionStartingMood;
@@ -110,11 +110,9 @@ public class User {
 	}
 	
 	@ScheduledMethod(start = 1, interval = 10) //action every 10minutes
-	public void sessionActions() {
+	public void commentAndLikeActions() {
 		if(loggedIn) {
-			
 			checkMyActiveEventStatus();
-			
 			if(currentPostsIDs.isEmpty()) {
 				collectInterestingPosts();
 			} else {
@@ -122,26 +120,35 @@ public class User {
 				tryToLike();
 			}
 			tryToAnswerCommentInAlreadySeenPost();
-			tryToPost();
-			tryToFindAFriend();
-			tryToChat();
-			tryToCreateEvent();
-			tryToCreateGroup();
-			
-			if(interestingGroupsIDs.isEmpty()) {
-				collectInterestingGroups();
-			} else if(!interestingGroupsIDs.isEmpty()){
-				tryToJoinGroup();
-			}
-			
-			if(interestingEventsIDs.isEmpty()) {
-				collectInterestingGroups();
-			} else if(!interestingGroupsIDs.isEmpty()){
-				tryToJoinEvent();
-			}
 			
 		} 
 		
+	}
+	
+	@ScheduledMethod(start = 1, interval = 25) //action every 10minutes
+	public void postAndFindActions() {
+		if(loggedIn) {
+			tryToPost();
+			tryToFindAFriend();
+		}
+	}
+	
+	@ScheduledMethod(start = 1, interval = 40) //action every 10minutes
+	public void eventOrGroupActions() {
+		tryToCreateEvent();
+		tryToCreateGroup();
+		
+		if(interestingGroupsIDs.isEmpty()) {
+			collectInterestingGroups();
+		} else if(!interestingGroupsIDs.isEmpty()){
+			tryToJoinGroup();
+		}
+		
+		if(interestingEventsIDs.isEmpty()) {
+			collectInterestingGroups();
+		} else if(!interestingGroupsIDs.isEmpty()){
+			tryToJoinEvent();
+		}
 	}
 	
 	private void checkMyActiveEventStatus() {
@@ -530,7 +537,7 @@ public class User {
 		this.changeMoodByChatResult(chatPartner, chatResultForUser());		
 	}
 	
-	private TypeOfResult chatResultForUser() { //TODO make it depend on the rage characteristic
+	private TypeOfResult chatResultForUser() {
 		int randomResult = RandomHelper.nextIntFromTo(1, 3);
 		TypeOfResult chatResult = TypeOfResult.NEUTRAL;
 		switch(randomResult) {
@@ -804,6 +811,10 @@ public class User {
 	
 	public int getPageRankReceivedNegetiveComments() {
 		return pageRank.getReceivedNegetiveComments();
+	}
+	
+	public String getCharacter() {
+		return characteristics.name;
 	}
 	
 }

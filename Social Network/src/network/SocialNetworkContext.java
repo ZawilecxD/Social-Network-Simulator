@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -25,7 +27,6 @@ import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
-import repast.simphony.random.RandomHelper;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.continuous.RandomCartesianAdder;
@@ -60,6 +61,8 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 	private @Getter static HashMap<Integer, Group> groupsMap; 
 	private @Getter static HashMap<Integer, Event> eventsMap; 
 	
+	private HashMap<Integer, Integer> tagMap = new HashMap<Integer, Integer>();
+	
 	private static Context mainContext;
 	
 	public static Context getMainContext() {
@@ -92,22 +95,326 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		int usersNumber = (Integer) params.getValue("usersNumber");
 		
+//		int likerNumber = (int)(usersNumber * 0.2);
+//		int commentatorNumber = (int)(usersNumber * 0.17);
+//		int chatterNumber = (int)(usersNumber * 0.14);
+//		int groupieNumber = (int)(usersNumber * 0.12);
+//		int nerdNumber = (int)(usersNumber * 0.09);
+//		int haterNumber = (int)(usersNumber * 0.09);
+//		int observerNumber = (int)(usersNumber * 0.08);
+//		int nervousNumber = (int)(usersNumber * 0.07);
+//		int lonerNumber = usersNumber - likerNumber - commentatorNumber - chatterNumber - groupieNumber - nerdNumber
+//				- haterNumber - observerNumber - nervousNumber;
+		
+		int fullTagNumber = 6 * usersNumber;
+		
+		tagMap.put(Integer.valueOf(1), Integer.parseInt(String.valueOf((int)(0.1 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(2), Integer.parseInt(String.valueOf((int)(0.09 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(3), Integer.parseInt(String.valueOf((int)(0.07 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(4), Integer.parseInt(String.valueOf((int)(0.05 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(5), Integer.parseInt(String.valueOf((int)(0.05 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(6), Integer.parseInt(String.valueOf((int)(0.04 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(7), Integer.parseInt(String.valueOf((int)(0.04 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(8), Integer.parseInt(String.valueOf((int)(0.03 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(9), Integer.parseInt(String.valueOf((int)(0.03 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(10), Integer.parseInt(String.valueOf((int)(0.03 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(11), Integer.parseInt(String.valueOf((int)(0.03 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(12), Integer.parseInt(String.valueOf((int)(0.03 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(13), Integer.parseInt(String.valueOf((int)(0.03 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(14), Integer.parseInt(String.valueOf((int)(0.03 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(15), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(16), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(17), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(18), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(19), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(20), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(21), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(22), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(23), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(24), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(25), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(26), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(27), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(28), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(29), Integer.parseInt(String.valueOf((int)(0.02 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(30), Integer.parseInt(String.valueOf((int)(0.01 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(31), Integer.parseInt(String.valueOf((int)(0.01 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(32), Integer.parseInt(String.valueOf((int)(0.01 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(33), Integer.parseInt(String.valueOf((int)(0.01 * fullTagNumber))));
+		tagMap.put(Integer.valueOf(34), Integer.parseInt(String.valueOf((int)(0.01 * fullTagNumber))));
+		
+		Random random = new Random();
+		
 		for(int i=0; i<usersNumber; i++) {
-			User newUser = new User(space, grid, Sex.MALE, UserCharacteristics.defaultCharacteristics());
-			context.add(newUser);
-			int randomIndex = RandomHelper.nextIntFromTo(0, 2);
-			if(randomIndex == 0) {
-				newUser.addToFavouriteTags(Tag.FOOD);
-
-			} else if(randomIndex == 1) {
-				newUser.addToFavouriteTags(Tag.FOOTBALL);
-
-			} else {
-				newUser.addToFavouriteTags(Tag.ADVENTURE);
-
-			}
-			usersMap.put(newUser.getUserId(), newUser);
+		Sex sex = null;
+		if (random.nextInt(100) < 64) {
+			sex = Sex.FEMALE;
+		} else {
+			sex = Sex.MALE;
 		}
+		User newUser = new User(space, grid, sex, UserCharacteristics.defaultCharacteristics());
+		context.add(newUser);
+		Set<Integer> keySet = tagMap.keySet();
+		ArrayList<Integer> keys = new ArrayList<Integer>();
+		keys.addAll(keySet);
+		Collections.shuffle(keys);
+		for (int j=0; j<3; j++) {
+			Integer key = keys.get(j);
+			Integer value = tagMap.get(key);
+			Tag tag = getById(key);
+			if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+				tagMap.remove(key);
+			} else {
+				tagMap.put(key, value - Integer.valueOf(1));
+			}
+			newUser.addToFavouriteTags(tag);
+		}
+		usersMap.put(newUser.getUserId(), newUser);
+	}
+		
+//		for (int i=0; i<likerNumber; i++) {
+//			Sex sex = null;
+//			if (random.nextInt(100) < 64) {
+//				sex = Sex.FEMALE;
+//			} else {
+//				sex = Sex.MALE;
+//			}
+//			User newUser = new User(space, grid, sex, UserCharacteristics.likerCharacteristics());
+//			context.add(newUser);
+//			for (int j=0; j<3; j++) {
+//				Set<Integer> keySet = tagMap.keySet();
+//				Integer[] keys = new Integer[keySet.size()];
+//				keySet.toArray(keys);
+//				int keysSize = keys.length;
+//				int index = random.nextInt(keysSize);
+//				Integer key = keys[index];
+//				Integer value = tagMap.get(key);
+//				Tag tag = getById(key);
+//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+//					tagMap.remove(key);
+//				} else {
+//					tagMap.put(key, value - Integer.valueOf(1));
+//				}
+//				newUser.addToFavouriteTags(tag);
+//			}
+//			usersMap.put(newUser.getUserId(), newUser);
+//		}
+//		
+//		for (int i=0; i<commentatorNumber; i++) {
+//			Sex sex = null;
+//			if (random.nextInt(100) < 64) {
+//				sex = Sex.FEMALE;
+//			} else {
+//				sex = Sex.MALE;
+//			}
+//			User newUser = new User(space, grid, sex, UserCharacteristics.commentatorCharacteristics());
+//			context.add(newUser);
+//			Set<Integer> keySet = tagMap.keySet();
+//			ArrayList<Integer> keys = new ArrayList<Integer>();
+//			keys.addAll(keySet);
+//			Collections.shuffle(keys);
+//			for (int j=0; j<3; j++) {
+//				Integer key = keys.get(j);
+//				Integer value = tagMap.get(key);
+//				Tag tag = getById(key);
+//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+//					tagMap.remove(key);
+//				} else {
+//					tagMap.put(key, value - Integer.valueOf(1));
+//				}
+//				newUser.addToFavouriteTags(tag);
+//			}
+//			usersMap.put(newUser.getUserId(), newUser);
+//		}
+//		
+//		for (int i=0; i<chatterNumber; i++) {
+//			Sex sex = null;
+//			if (random.nextInt(100) < 64) {
+//				sex = Sex.FEMALE;
+//			} else {
+//				sex = Sex.MALE;
+//			}
+//			User newUser = new User(space, grid, sex, UserCharacteristics.chatterCharacteristics());
+//			context.add(newUser);
+//			Set<Integer> keySet = tagMap.keySet();
+//			ArrayList<Integer> keys = new ArrayList<Integer>();
+//			keys.addAll(keySet);
+//			Collections.shuffle(keys);
+//			for (int j=0; j<3; j++) {
+//				Integer key = keys.get(j);
+//				Integer value = tagMap.get(key);
+//				Tag tag = getById(key);
+//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+//					tagMap.remove(key);
+//				} else {
+//					tagMap.put(key, value - Integer.valueOf(1));
+//				}
+//				newUser.addToFavouriteTags(tag);
+//			}
+//			usersMap.put(newUser.getUserId(), newUser);
+//		}
+//		
+//		for (int i=0; i<groupieNumber; i++) {
+//			Sex sex = null;
+//			if (random.nextInt(100) < 64) {
+//				sex = Sex.FEMALE;
+//			} else {
+//				sex = Sex.MALE;
+//			}
+//			User newUser = new User(space, grid, sex, UserCharacteristics.groupieCharacteristics());
+//			context.add(newUser);
+//			Set<Integer> keySet = tagMap.keySet();
+//			ArrayList<Integer> keys = new ArrayList<Integer>();
+//			keys.addAll(keySet);
+//			Collections.shuffle(keys);
+//			for (int j=0; j<3; j++) {
+//				Integer key = keys.get(j);
+//				Integer value = tagMap.get(key);
+//				Tag tag = getById(key);
+//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+//					tagMap.remove(key);
+//				} else {
+//					tagMap.put(key, value - Integer.valueOf(1));
+//				}
+//				newUser.addToFavouriteTags(tag);
+//			}
+//			usersMap.put(newUser.getUserId(), newUser);
+//		}
+//		
+//		for (int i=0; i<nerdNumber; i++) {
+//			Sex sex = null;
+//			if (random.nextInt(100) < 64) {
+//				sex = Sex.FEMALE;
+//			} else {
+//				sex = Sex.MALE;
+//			}
+//			User newUser = new User(space, grid, sex, UserCharacteristics.nerdCharacteristics());
+//			context.add(newUser);
+//			Set<Integer> keySet = tagMap.keySet();
+//			ArrayList<Integer> keys = new ArrayList<Integer>();
+//			keys.addAll(keySet);
+//			Collections.shuffle(keys);
+//			for (int j=0; j<3; j++) {
+//				Integer key = keys.get(j);
+//				Integer value = tagMap.get(key);
+//				Tag tag = getById(key);
+//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+//					tagMap.remove(key);
+//				} else {
+//					tagMap.put(key, value - Integer.valueOf(1));
+//				}
+//				newUser.addToFavouriteTags(tag);
+//			}
+//			usersMap.put(newUser.getUserId(), newUser);
+//		}
+//		
+//		for(int i=0; i<haterNumber; i++) {
+//			Sex sex = null;
+//			if (random.nextInt(100) < 64) {
+//				sex = Sex.FEMALE;
+//			} else {
+//				sex = Sex.MALE;
+//			}
+//			User newUser = new User(space, grid, sex, UserCharacteristics.haterCharacteristics());
+//			context.add(newUser);
+//			Set<Integer> keySet = tagMap.keySet();
+//			ArrayList<Integer> keys = new ArrayList<Integer>();
+//			keys.addAll(keySet);
+//			Collections.shuffle(keys);
+//			for (int j=0; j<3; j++) {
+//				Integer key = keys.get(j);
+//				Integer value = tagMap.get(key);
+//				Tag tag = getById(key);
+//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+//					tagMap.remove(key);
+//				} else {
+//					tagMap.put(key, value - Integer.valueOf(1));
+//				}
+//				newUser.addToFavouriteTags(tag);
+//			}
+//			usersMap.put(newUser.getUserId(), newUser);
+//		}
+//		
+//		for(int i=0; i<observerNumber; i++) {
+//			Sex sex = null;
+//			if (random.nextInt(100) < 64) {
+//				sex = Sex.FEMALE;
+//			} else {
+//				sex = Sex.MALE;
+//			}
+//			User newUser = new User(space, grid, sex, UserCharacteristics.observerCharacteristics());
+//			context.add(newUser);
+//			Set<Integer> keySet = tagMap.keySet();
+//			ArrayList<Integer> keys = new ArrayList<Integer>();
+//			keys.addAll(keySet);
+//			Collections.shuffle(keys);
+//			for (int j=0; j<3; j++) {
+//				Integer key = keys.get(j);
+//				Integer value = tagMap.get(key);
+//				Tag tag = getById(key);
+//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+//					tagMap.remove(key);
+//				} else {
+//					tagMap.put(key, value - Integer.valueOf(1));
+//				}
+//				newUser.addToFavouriteTags(tag);
+//			}
+//			usersMap.put(newUser.getUserId(), newUser);
+//		}
+//		
+//		for(int i=0; i<nervousNumber; i++) {
+//			Sex sex = null;
+//			if (random.nextInt(100) < 64) {
+//				sex = Sex.FEMALE;
+//			} else {
+//				sex = Sex.MALE;
+//			}
+//			User newUser = new User(space, grid, sex, UserCharacteristics.nervousCharacteristics());
+//			context.add(newUser);
+//			Set<Integer> keySet = tagMap.keySet();
+//			ArrayList<Integer> keys = new ArrayList<Integer>();
+//			keys.addAll(keySet);
+//			Collections.shuffle(keys);
+//			for (int j=0; j<3; j++) {
+//				Integer key = keys.get(j);
+//				Integer value = tagMap.get(key);
+//				Tag tag = getById(key);
+//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+//					tagMap.remove(key);
+//				} else {
+//					tagMap.put(key, value - Integer.valueOf(1));
+//				}
+//				newUser.addToFavouriteTags(tag);
+//			}
+//			usersMap.put(newUser.getUserId(), newUser);
+//		}
+//		
+//		for(int i=0; i<lonerNumber; i++) {
+//			Sex sex = null;
+//			if (random.nextInt(100) < 64) {
+//				sex = Sex.FEMALE;
+//			} else {
+//				sex = Sex.MALE;
+//			}
+//			User newUser = new User(space, grid, sex, UserCharacteristics.lonerCharacteristics());
+//			context.add(newUser);
+//			Set<Integer> keySet = tagMap.keySet();
+//			ArrayList<Integer> keys = new ArrayList<Integer>();
+//			keys.addAll(keySet);
+//			Collections.shuffle(keys);
+//			for (int j=0; j<3; j++) {
+//				Integer key = keys.get(j);
+//				Integer value = tagMap.get(key);
+//				Tag tag = getById(key);
+//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+//					tagMap.remove(key);
+//				} else {
+//					tagMap.put(key, value - Integer.valueOf(1));
+//				}
+//				newUser.addToFavouriteTags(tag);
+//			}
+//			usersMap.put(newUser.getUserId(), newUser);
+//		}
 		
 		for(Object obj : context) {
 			NdPoint point = space.getLocation(obj);
@@ -116,6 +423,13 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 
 		mainContext = context;
 		return context;
+	}
+	
+	public Tag getById(int popularity) {
+	    for(Tag e : Tag.values()) {
+	        if(e.getValue() == popularity) return e;
+	    }
+	    return null;
 	}
 	
 	public static int getCurrentTick() {
