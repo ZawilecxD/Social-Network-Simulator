@@ -23,7 +23,7 @@ public class User  {
 	 }
 	 
 	public void linkToOther(User user2, double weight) {
-		DatabaseAnayzerContext.getNetwork().addEdge(this, user2).setWeight(weight);
+		DatabaseAnalyzerContext.getNetwork().addEdge(this, user2).setWeight(weight);
 	}
 	
 //	public void createEdges() {
