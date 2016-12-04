@@ -1,0 +1,7 @@
+ERROR [main] 2015-04-02 01:24:07,771 saf.core.runtime.Boot - unknown plug-in ID - saf.core.runtime
+java.lang.IllegalArgumentException: unknown plug-in ID - saf.core.runtime
+	at org.java.plugin.registry.xml.PluginRegistryImpl.getPluginDescriptor(Unknown Source)
+	at org.java.plugin.standard.StandardPluginManager.getPlugin(Unknown Source)
+	at saf.core.runtime.Boot.run(Boot.java:101)
+	at saf.core.runtime.Boot.main(Boot.java:247)
+	at repast.simphony.runtime.RepastMain.main(RepastMain.java:43)

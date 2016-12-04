@@ -1,520 +1,497 @@
-!SESSION 2016-03-29 17:48:42.348 -----------------------------------------------
+!SESSION 2016-12-01 18:35:48.690 -----------------------------------------------
 eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.7.0_79
+java.version=1.8.0_91
 java.vendor=Oracle Corporation
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
 Framework arguments:  -product org.eclipse.epp.package.standard.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-03-29 17:49:33.962
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+This is a continuation of log file D:\Projekty\Social Network Simulator\Social-Network-Simulator\.metadata\.bak_0.log
+Created Time: 2016-12-01 18:36:52.246
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-03-29 17:49:33.978
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Murzynas'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2016-04-10 20:25:58.315 -----------------------------------------------
-eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.7.0_79
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
-Framework arguments:  -product org.eclipse.epp.package.standard.product
-Command-line arguments:  -data D:\Projekty\Social Network Simulator\Social-Network-Simulator -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2016-04-10 20:26:15.486
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.egit.ui 2 0 2016-04-10 20:26:15.486
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Murzynas'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.ltk.ui.refactoring 4 10000 2016-04-11 15:10:27.442
-!MESSAGE Internal Error
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:36:52.248
+!MESSAGE Failed finding RepositoryMapping
 !STACK 1
-Java Model Exception: Core Exception [code 273] Problems encountered while deleting resources.
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:50)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
-	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Contains: Could not delete 'D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar'.
-org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
-	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:131)
-	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
-	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
-	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1979)
-	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:803)
-	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:168)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
-	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Contains: Could not delete: D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar.
-Caused by: org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
-	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:816)
-	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:168)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
-	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Contains: Could not delete 'D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar'.
-org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
-	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:131)
-	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
-	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
-	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1979)
-	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:803)
-	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:168)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
-	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Contains: Could not delete: D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar.
-!SUBENTRY 1 org.eclipse.core.resources 4 273 2016-04-11 15:10:27.458
-!MESSAGE Problems encountered while deleting resources.
-!SUBENTRY 2 org.eclipse.core.resources 4 273 2016-04-11 15:10:27.458
-!MESSAGE Could not delete 'D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar'.
-!STACK 1
-org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
-	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:131)
-	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
-	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
-	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1979)
-	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:803)
-	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:168)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
-	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Contains: Could not delete: D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar.
-!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2016-04-11 15:10:27.458
-!MESSAGE Problems encountered while deleting files.
-!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2016-04-11 15:10:27.458
-!MESSAGE Could not delete: D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar.
-
-!ENTRY org.eclipse.ltk.ui.refactoring 4 10000 2016-04-11 15:10:45.460
-!MESSAGE Internal Error
-!STACK 1
-Java Model Exception: Core Exception [code 273] Problems encountered while deleting resources.
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:50)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
-	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Contains: Could not delete 'D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar'.
-org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
-	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:131)
-	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
-	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
-	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1979)
-	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:803)
-	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:168)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
-	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Contains: Could not delete: D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar.
-Caused by: org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
-	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:816)
-	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:168)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
-	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Contains: Could not delete 'D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar'.
-org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
-	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:131)
-	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
-	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
-	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1979)
-	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:803)
-	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:168)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
-	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Contains: Could not delete: D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar.
-!SUBENTRY 1 org.eclipse.core.resources 4 273 2016-04-11 15:10:45.460
-!MESSAGE Problems encountered while deleting resources.
-!SUBENTRY 2 org.eclipse.core.resources 4 273 2016-04-11 15:10:45.460
-!MESSAGE Could not delete 'D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar'.
-!STACK 1
-org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
-	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:131)
-	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
-	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
-	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1979)
-	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:803)
-	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:168)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange$1.run(DynamicValidationStateChange.java:113)
-	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
-	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5358)
-	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:116)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
-	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
-	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Contains: Could not delete: D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar.
-!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2016-04-11 15:10:45.460
-!MESSAGE Problems encountered while deleting files.
-!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2016-04-11 15:10:45.460
-!MESSAGE Could not delete: D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\log4j-1.2.17.jar.
-!SESSION 2016-04-13 11:01:05.307 -----------------------------------------------
-eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.7.0_79
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
-Framework arguments:  -product org.eclipse.epp.package.standard.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2016-04-13 11:01:45.878
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.egit.ui 2 0 2016-04-13 11:01:45.879
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Murzynas'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2016-04-26 17:20:23.364 -----------------------------------------------
-eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.7.0_79
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
-Framework arguments:  -product org.eclipse.epp.package.standard.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2016-04-26 17:20:47.457
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.egit.ui 2 0 2016-04-26 17:20:47.458
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Murzynas'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2016-05-14 18:16:35.803 -----------------------------------------------
-eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.7.0_79
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
-Framework arguments:  -product org.eclipse.epp.package.standard.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2016-05-14 18:17:28.375
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.egit.ui 2 0 2016-05-14 18:17:28.377
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Murzynas'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2016-05-15 11:05:55.709
-!MESSAGE Connection to http://mirror.anl.gov/pub/repastsimphony/p2.index failed on mirror.anl.gov. Retry attempt 0 started
-!STACK 0
-java.net.UnknownHostException: mirror.anl.gov
-	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
-	at java.net.InetAddress$1.lookupAllHostAddr(Unknown Source)
-	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
-	at java.net.InetAddress.getAllByName0(Unknown Source)
-	at java.net.InetAddress.getAllByName(Unknown Source)
-	at java.net.InetAddress.getAllByName(Unknown Source)
-	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
-	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
-	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
-	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
-	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
-	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
-	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
-	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
-	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1077)
-	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1068)
-	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1064)
-	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:73)
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:36:52.248
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
 
-!ENTRY org.eclipse.equinox.p2.core 4 0 2016-05-15 11:05:56.005
-!MESSAGE Provisioning exception
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:36:53.030
+!MESSAGE Failed finding RepositoryMapping
 !STACK 1
-org.eclipse.equinox.p2.core.ProvisionException: Unknown Host: http://mirror.anl.gov/pub/repastsimphony/content.xml
-	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:192)
-	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.getLocalFile(SimpleMetadataRepositoryFactory.java:66)
-	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:88)
-	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
-	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
-	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:668)
-	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
-	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
-	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
-	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
-	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
-	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-Caused by: java.net.UnknownHostException: mirror.anl.gov
-	at java.net.InetAddress.getAllByName0(Unknown Source)
-	at java.net.InetAddress.getAllByName(Unknown Source)
-	at java.net.InetAddress.getAllByName(Unknown Source)
-	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
-	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
-	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
-	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
-	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
-	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
-	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
-	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:259)
-	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
-	... 1 more
-!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1006 2016-05-15 11:05:56.005
-!MESSAGE Unknown Host: http://mirror.anl.gov/pub/repastsimphony/content.xml
-!STACK 0
-java.net.UnknownHostException: mirror.anl.gov
-	at java.net.InetAddress.getAllByName0(Unknown Source)
-	at java.net.InetAddress.getAllByName(Unknown Source)
-	at java.net.InetAddress.getAllByName(Unknown Source)
-	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
-	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
-	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
-	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
-	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
-	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
-	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
-	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:259)
-	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:36:53.030
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:37:11.522
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-!SESSION 2016-05-15 11:10:01.364 -----------------------------------------------
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:37:11.523
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:44:25.862
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:44:25.862
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:44:26.553
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:44:26.553
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:44:53.054
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:44:53.054
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:44:53.283
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:44:53.283
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:49:37.903
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:49:37.903
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:51:07.863
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:51:07.864
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:51:08.133
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:51:08.133
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:51:08.433
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:51:08.434
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:54:40.050
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:54:40.050
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:54:40.212
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:54:40.212
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:58:47.521
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:58:47.522
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:58:48.651
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:58:48.652
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 18:58:49.280
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 18:58:49.280
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 19:06:11.988
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 19:06:11.989
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 19:06:12.302
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 19:06:12.302
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 19:06:12.683
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 19:06:12.683
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 19:08:00.902
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 19:08:00.902
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-01 19:08:01.456
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-01 19:08:01.456
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+!SESSION 2016-12-04 17:47:30.662 -----------------------------------------------
 eclipse.buildId=4.4.2.M20150204-1700
 java.version=1.8.0_91
 java.vendor=Oracle Corporation
@@ -522,7 +499,7 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
 Framework arguments:  -product org.eclipse.epp.package.standard.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-05-15 11:10:38.841
+!ENTRY org.eclipse.egit.ui 2 0 2016-12-04 17:47:54.826
 !MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
 Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
 The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
@@ -530,97 +507,837 @@ this system level configuration. The Git installation location can be configured
 Team > Git > Configuration preference page's 'System Settings' tab.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-05-15 11:10:38.842
+!ENTRY org.eclipse.egit.ui 2 0 2016-12-04 17:47:54.828
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\Murzynas'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2016-05-15 11:15:26.474 -----------------------------------------------
-eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.8.0_91
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
-Framework arguments:  -product org.eclipse.epp.package.standard.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-05-15 11:15:48.147
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:48:07.762
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:48:07.765
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-05-15 11:15:48.147
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Murzynas'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2016-05-15 11:19:45.604 -----------------------------------------------
-eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.8.0_91
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
-Framework arguments:  -product org.eclipse.epp.package.standard.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:48:07.768
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:48:07.768
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-05-15 11:20:06.572
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:48:07.769
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:48:07.769
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-05-15 11:20:06.572
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Murzynas'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2016-06-01 18:15:05.383 -----------------------------------------------
-eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.8.0_91
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
-Framework arguments:  -product org.eclipse.epp.package.standard.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:48:07.770
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:48:07.770
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-06-01 19:33:05.355
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:48:07.770
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:48:07.771
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-06-01 19:33:05.371
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Murzynas'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2016-06-04 11:14:21.341 -----------------------------------------------
-eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.8.0_91
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
-Framework arguments:  -product org.eclipse.epp.package.standard.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:48:07.771
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:48:07.772
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-06-04 11:14:46.091
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:48:08.485
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:48:08.485
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
 
-!ENTRY org.eclipse.egit.ui 2 0 2016-06-04 11:14:46.103
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Murzynas'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:48:48.222
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:48:48.223
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:48:48.566
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:48:48.567
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:49:25.896
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:49:25.896
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:51:22.964
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:51:22.964
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:51:23.657
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:51:23.657
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:52:51.603
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:52:51.604
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:53:55.000
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:53:55.001
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:53:55.767
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:53:55.768
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:54:13.428
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:54:13.428
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:54:13.851
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:54:13.852
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:54:47.131
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:54:47.132
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:54:47.567
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:54:47.568
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:55:40.496
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:55:40.501
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:55:41.605
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:55:41.606
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:56:07.803
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:56:07.804
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:57:31.857
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:57:31.857
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:57:39.285
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:57:39.286
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:57:39.592
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:57:39.592
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:57:44.427
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:57:44.428
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:57:44.920
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:57:44.920
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:58:06.780
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:58:06.781
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:58:07.184
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:58:07.185
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:59:04.697
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:59:04.697
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:59:05.352
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:59:05.353
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 17:59:06.144
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 17:59:06.144
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 18:00:31.547
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 18:00:31.548
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 18:00:31.904
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 18:00:31.905
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 18:00:56.575
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 18:00:56.576
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.
+
+!ENTRY org.eclipse.egit.core 4 0 2016-12-04 20:05:42.413
+!MESSAGE Failed finding RepositoryMapping
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/DataBaseAnalyzer/output' is not local.
+	at org.eclipse.core.internal.resources.Resource.checkLocal(Resource.java:353)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:222)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1274)
+	at org.eclipse.egit.core.project.GitProjectData.getRepositoryMapping(GitProjectData.java:367)
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:271)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.getIndexDiffDataOrNull(GitLightweightDecorator.java:216)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorateResource(GitLightweightDecorator.java:190)
+	at org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator.decorate(GitLightweightDecorator.java:176)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:267)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 369 2016-12-04 20:05:42.413
+!MESSAGE Resource '/DataBaseAnalyzer/output' is not local.

@@ -817,4 +817,12 @@ public class User {
 		return characteristics.name;
 	}
 	
+	public int getFriendsNumber() {
+		return friends.size();
+	}
+	
+public int getRelativesNumber() {
+		return relatives.size();
+	}
+	
 }

@@ -6,12 +6,16 @@
       <threshold>3</threshold>
     </default>
     <int>5</int>
-    <int>3</int>
+    <int>5</int>
     <string>SettingsFileName</string>
     <string>Repast.settings</string>
     <string>SettingsRegistryId</string>
     <string>Repast.registry</string>
+    <string>Pajek.home</string>
+    <string>C:\Pajek\Pajek.exe</string>
     <string>LastLoadedScenario</string>
     <string>D:\Projekty\Social Network Simulator\Social-Network-Simulator\Social Network\Social Network.rs</string>
+    <string>Pajek.licenseAccepted</string>
+    <boolean>true</boolean>
   </hashtable>
 </simphony.settings.SettingsRegistry>

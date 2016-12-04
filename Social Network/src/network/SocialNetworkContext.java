@@ -1,5 +1,6 @@
 package network;
 
+import java.awt.GridBagLayout;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -9,6 +10,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import lombok.Getter;
 
@@ -33,6 +37,8 @@ import repast.simphony.space.continuous.RandomCartesianAdder;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridBuilderParameters;
 import repast.simphony.space.grid.SimpleGridAdder;
+import repast.simphony.ui.RSApplication;
+import repast.simphony.ui.probe.Probe;
 import user.Sex;
 import user.User;
 import user.UserCharacteristics;
@@ -44,7 +50,7 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 	public final static int DAY_LENGTH_IN_TICKS = 1440; 
 	public final static int CHANCE_TO_MEET_RELATIVES = 5; //chance (in percents) to find relatives on fb
 	public final static int MINIMAL_FRIENDS_COUNT = 10;
-	public final static int MINIMAL_VALUE_OF_FRIEND = 1000;
+	public final static int MINIMAL_VALUE_OF_FRIEND = 100;
 	public final static int MAX_EVENT_TIME = 5;
 	public final static int MAX_GROUPS_PER_OWNER = 3;
 	public final static int MAX_FOUND_GROUPS = 50;
@@ -69,6 +75,11 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 		return mainContext;
 	}
 	
+	public static void testUserPanel(String value) {
+		System.out.println("UserPanel setn value = "+value);
+		usersMap.clear();
+	}
+	
 	@Override
 	public Context build(Context<Object> context) {
 //		BasicConfigurator.configure();
@@ -77,6 +88,8 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 		initCollections();
 		
 		ContinuousSpaceFactory spaceFactory = ContinuousSpaceFactoryFinder.createContinuousSpaceFactory(null);
+		
+		
 		ContinuousSpace<Object> space = spaceFactory.createContinuousSpace("space", context, 
 				new RandomCartesianAdder <Object>(), 
 				new repast.simphony.space.continuous.WrapAroundBorders ()
@@ -88,6 +101,10 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 				new SimpleGridAdder<Object>() ,
 				true , 50 , 50));
 		
+		JPanel newPanel = new JPanel(new GridBagLayout());
+		JLabel label = new JLabel("Enter username:");
+		newPanel.add(label);
+		RSApplication.getRSApplicationInstance().addCustomUserPanel(newPanel);
 		
 		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("friendships network", context, true);
 		netBuilder.buildNetwork();
@@ -95,16 +112,16 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		int usersNumber = (Integer) params.getValue("usersNumber");
 		
-//		int likerNumber = (int)(usersNumber * 0.2);
-//		int commentatorNumber = (int)(usersNumber * 0.17);
-//		int chatterNumber = (int)(usersNumber * 0.14);
-//		int groupieNumber = (int)(usersNumber * 0.12);
-//		int nerdNumber = (int)(usersNumber * 0.09);
-//		int haterNumber = (int)(usersNumber * 0.09);
-//		int observerNumber = (int)(usersNumber * 0.08);
-//		int nervousNumber = (int)(usersNumber * 0.07);
-//		int lonerNumber = usersNumber - likerNumber - commentatorNumber - chatterNumber - groupieNumber - nerdNumber
-//				- haterNumber - observerNumber - nervousNumber;
+		int likerNumber = (int)(usersNumber * 0.2);
+		int commentatorNumber = (int)(usersNumber * 0.17);
+		int chatterNumber = (int)(usersNumber * 0.14);
+		int groupieNumber = (int)(usersNumber * 0.12);
+		int nerdNumber = (int)(usersNumber * 0.09);
+		int haterNumber = (int)(usersNumber * 0.09);
+		int observerNumber = (int)(usersNumber * 0.08);
+		int nervousNumber = (int)(usersNumber * 0.07);
+		int lonerNumber = usersNumber - likerNumber - commentatorNumber - chatterNumber - groupieNumber - nerdNumber
+				- haterNumber - observerNumber - nervousNumber;
 		
 		int fullTagNumber = 6 * usersNumber;
 		
@@ -145,276 +162,276 @@ public class SocialNetworkContext implements ContextBuilder<Object> {
 		
 		Random random = new Random();
 		
-		for(int i=0; i<usersNumber; i++) {
-		Sex sex = null;
-		if (random.nextInt(100) < 64) {
-			sex = Sex.FEMALE;
-		} else {
-			sex = Sex.MALE;
-		}
-		User newUser = new User(space, grid, sex, UserCharacteristics.defaultCharacteristics());
-		context.add(newUser);
-		Set<Integer> keySet = tagMap.keySet();
-		ArrayList<Integer> keys = new ArrayList<Integer>();
-		keys.addAll(keySet);
-		Collections.shuffle(keys);
-		for (int j=0; j<3; j++) {
-			Integer key = keys.get(j);
-			Integer value = tagMap.get(key);
-			Tag tag = getById(key);
-			if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
-				tagMap.remove(key);
-			} else {
-				tagMap.put(key, value - Integer.valueOf(1));
-			}
-			newUser.addToFavouriteTags(tag);
-		}
-		usersMap.put(newUser.getUserId(), newUser);
-	}
+//		for(int i=0; i<usersNumber; i++) {
+//		Sex sex = null;
+//		if (random.nextInt(100) < 64) {
+//			sex = Sex.FEMALE;
+//		} else {
+//			sex = Sex.MALE;
+//		}
+//		User newUser = new User(space, grid, sex, UserCharacteristics.defaultCharacteristics());
+//		context.add(newUser);
+//		Set<Integer> keySet = tagMap.keySet();
+//		ArrayList<Integer> keys = new ArrayList<Integer>();
+//		keys.addAll(keySet);
+//		Collections.shuffle(keys);
+//		for (int j=0; j<3; j++) {
+//			Integer key = keys.get(j);
+//			Integer value = tagMap.get(key);
+//			Tag tag = getById(key);
+//			if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+//				tagMap.remove(key);
+//			} else {
+//				tagMap.put(key, value - Integer.valueOf(1));
+//			}
+//			newUser.addToFavouriteTags(tag);
+//		}
+//		usersMap.put(newUser.getUserId(), newUser);
+//	}
 		
-//		for (int i=0; i<likerNumber; i++) {
-//			Sex sex = null;
-//			if (random.nextInt(100) < 64) {
-//				sex = Sex.FEMALE;
-//			} else {
-//				sex = Sex.MALE;
-//			}
-//			User newUser = new User(space, grid, sex, UserCharacteristics.likerCharacteristics());
-//			context.add(newUser);
-//			for (int j=0; j<3; j++) {
-//				Set<Integer> keySet = tagMap.keySet();
-//				Integer[] keys = new Integer[keySet.size()];
-//				keySet.toArray(keys);
-//				int keysSize = keys.length;
-//				int index = random.nextInt(keysSize);
-//				Integer key = keys[index];
-//				Integer value = tagMap.get(key);
-//				Tag tag = getById(key);
-//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
-//					tagMap.remove(key);
-//				} else {
-//					tagMap.put(key, value - Integer.valueOf(1));
-//				}
-//				newUser.addToFavouriteTags(tag);
-//			}
-//			usersMap.put(newUser.getUserId(), newUser);
-//		}
-//		
-//		for (int i=0; i<commentatorNumber; i++) {
-//			Sex sex = null;
-//			if (random.nextInt(100) < 64) {
-//				sex = Sex.FEMALE;
-//			} else {
-//				sex = Sex.MALE;
-//			}
-//			User newUser = new User(space, grid, sex, UserCharacteristics.commentatorCharacteristics());
-//			context.add(newUser);
-//			Set<Integer> keySet = tagMap.keySet();
-//			ArrayList<Integer> keys = new ArrayList<Integer>();
-//			keys.addAll(keySet);
-//			Collections.shuffle(keys);
-//			for (int j=0; j<3; j++) {
-//				Integer key = keys.get(j);
-//				Integer value = tagMap.get(key);
-//				Tag tag = getById(key);
-//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
-//					tagMap.remove(key);
-//				} else {
-//					tagMap.put(key, value - Integer.valueOf(1));
-//				}
-//				newUser.addToFavouriteTags(tag);
-//			}
-//			usersMap.put(newUser.getUserId(), newUser);
-//		}
-//		
-//		for (int i=0; i<chatterNumber; i++) {
-//			Sex sex = null;
-//			if (random.nextInt(100) < 64) {
-//				sex = Sex.FEMALE;
-//			} else {
-//				sex = Sex.MALE;
-//			}
-//			User newUser = new User(space, grid, sex, UserCharacteristics.chatterCharacteristics());
-//			context.add(newUser);
-//			Set<Integer> keySet = tagMap.keySet();
-//			ArrayList<Integer> keys = new ArrayList<Integer>();
-//			keys.addAll(keySet);
-//			Collections.shuffle(keys);
-//			for (int j=0; j<3; j++) {
-//				Integer key = keys.get(j);
-//				Integer value = tagMap.get(key);
-//				Tag tag = getById(key);
-//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
-//					tagMap.remove(key);
-//				} else {
-//					tagMap.put(key, value - Integer.valueOf(1));
-//				}
-//				newUser.addToFavouriteTags(tag);
-//			}
-//			usersMap.put(newUser.getUserId(), newUser);
-//		}
-//		
-//		for (int i=0; i<groupieNumber; i++) {
-//			Sex sex = null;
-//			if (random.nextInt(100) < 64) {
-//				sex = Sex.FEMALE;
-//			} else {
-//				sex = Sex.MALE;
-//			}
-//			User newUser = new User(space, grid, sex, UserCharacteristics.groupieCharacteristics());
-//			context.add(newUser);
-//			Set<Integer> keySet = tagMap.keySet();
-//			ArrayList<Integer> keys = new ArrayList<Integer>();
-//			keys.addAll(keySet);
-//			Collections.shuffle(keys);
-//			for (int j=0; j<3; j++) {
-//				Integer key = keys.get(j);
-//				Integer value = tagMap.get(key);
-//				Tag tag = getById(key);
-//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
-//					tagMap.remove(key);
-//				} else {
-//					tagMap.put(key, value - Integer.valueOf(1));
-//				}
-//				newUser.addToFavouriteTags(tag);
-//			}
-//			usersMap.put(newUser.getUserId(), newUser);
-//		}
-//		
-//		for (int i=0; i<nerdNumber; i++) {
-//			Sex sex = null;
-//			if (random.nextInt(100) < 64) {
-//				sex = Sex.FEMALE;
-//			} else {
-//				sex = Sex.MALE;
-//			}
-//			User newUser = new User(space, grid, sex, UserCharacteristics.nerdCharacteristics());
-//			context.add(newUser);
-//			Set<Integer> keySet = tagMap.keySet();
-//			ArrayList<Integer> keys = new ArrayList<Integer>();
-//			keys.addAll(keySet);
-//			Collections.shuffle(keys);
-//			for (int j=0; j<3; j++) {
-//				Integer key = keys.get(j);
-//				Integer value = tagMap.get(key);
-//				Tag tag = getById(key);
-//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
-//					tagMap.remove(key);
-//				} else {
-//					tagMap.put(key, value - Integer.valueOf(1));
-//				}
-//				newUser.addToFavouriteTags(tag);
-//			}
-//			usersMap.put(newUser.getUserId(), newUser);
-//		}
-//		
-//		for(int i=0; i<haterNumber; i++) {
-//			Sex sex = null;
-//			if (random.nextInt(100) < 64) {
-//				sex = Sex.FEMALE;
-//			} else {
-//				sex = Sex.MALE;
-//			}
-//			User newUser = new User(space, grid, sex, UserCharacteristics.haterCharacteristics());
-//			context.add(newUser);
-//			Set<Integer> keySet = tagMap.keySet();
-//			ArrayList<Integer> keys = new ArrayList<Integer>();
-//			keys.addAll(keySet);
-//			Collections.shuffle(keys);
-//			for (int j=0; j<3; j++) {
-//				Integer key = keys.get(j);
-//				Integer value = tagMap.get(key);
-//				Tag tag = getById(key);
-//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
-//					tagMap.remove(key);
-//				} else {
-//					tagMap.put(key, value - Integer.valueOf(1));
-//				}
-//				newUser.addToFavouriteTags(tag);
-//			}
-//			usersMap.put(newUser.getUserId(), newUser);
-//		}
-//		
-//		for(int i=0; i<observerNumber; i++) {
-//			Sex sex = null;
-//			if (random.nextInt(100) < 64) {
-//				sex = Sex.FEMALE;
-//			} else {
-//				sex = Sex.MALE;
-//			}
-//			User newUser = new User(space, grid, sex, UserCharacteristics.observerCharacteristics());
-//			context.add(newUser);
-//			Set<Integer> keySet = tagMap.keySet();
-//			ArrayList<Integer> keys = new ArrayList<Integer>();
-//			keys.addAll(keySet);
-//			Collections.shuffle(keys);
-//			for (int j=0; j<3; j++) {
-//				Integer key = keys.get(j);
-//				Integer value = tagMap.get(key);
-//				Tag tag = getById(key);
-//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
-//					tagMap.remove(key);
-//				} else {
-//					tagMap.put(key, value - Integer.valueOf(1));
-//				}
-//				newUser.addToFavouriteTags(tag);
-//			}
-//			usersMap.put(newUser.getUserId(), newUser);
-//		}
-//		
-//		for(int i=0; i<nervousNumber; i++) {
-//			Sex sex = null;
-//			if (random.nextInt(100) < 64) {
-//				sex = Sex.FEMALE;
-//			} else {
-//				sex = Sex.MALE;
-//			}
-//			User newUser = new User(space, grid, sex, UserCharacteristics.nervousCharacteristics());
-//			context.add(newUser);
-//			Set<Integer> keySet = tagMap.keySet();
-//			ArrayList<Integer> keys = new ArrayList<Integer>();
-//			keys.addAll(keySet);
-//			Collections.shuffle(keys);
-//			for (int j=0; j<3; j++) {
-//				Integer key = keys.get(j);
-//				Integer value = tagMap.get(key);
-//				Tag tag = getById(key);
-//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
-//					tagMap.remove(key);
-//				} else {
-//					tagMap.put(key, value - Integer.valueOf(1));
-//				}
-//				newUser.addToFavouriteTags(tag);
-//			}
-//			usersMap.put(newUser.getUserId(), newUser);
-//		}
-//		
-//		for(int i=0; i<lonerNumber; i++) {
-//			Sex sex = null;
-//			if (random.nextInt(100) < 64) {
-//				sex = Sex.FEMALE;
-//			} else {
-//				sex = Sex.MALE;
-//			}
-//			User newUser = new User(space, grid, sex, UserCharacteristics.lonerCharacteristics());
-//			context.add(newUser);
-//			Set<Integer> keySet = tagMap.keySet();
-//			ArrayList<Integer> keys = new ArrayList<Integer>();
-//			keys.addAll(keySet);
-//			Collections.shuffle(keys);
-//			for (int j=0; j<3; j++) {
-//				Integer key = keys.get(j);
-//				Integer value = tagMap.get(key);
-//				Tag tag = getById(key);
-//				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
-//					tagMap.remove(key);
-//				} else {
-//					tagMap.put(key, value - Integer.valueOf(1));
-//				}
-//				newUser.addToFavouriteTags(tag);
-//			}
-//			usersMap.put(newUser.getUserId(), newUser);
-//		}
+		for (int i=0; i<likerNumber; i++) {
+			Sex sex = null;
+			if (random.nextInt(100) < 64) {
+				sex = Sex.FEMALE;
+			} else {
+				sex = Sex.MALE;
+			}
+			User newUser = new User(space, grid, sex, UserCharacteristics.likerCharacteristics());
+			context.add(newUser);
+			for (int j=0; j<3; j++) {
+				Set<Integer> keySet = tagMap.keySet();
+				Integer[] keys = new Integer[keySet.size()];
+				keySet.toArray(keys);
+				int keysSize = keys.length;
+				int index = random.nextInt(keysSize);
+				Integer key = keys[index];
+				Integer value = tagMap.get(key);
+				Tag tag = getById(key);
+				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+					tagMap.remove(key);
+				} else {
+					tagMap.put(key, value - Integer.valueOf(1));
+				}
+				newUser.addToFavouriteTags(tag);
+			}
+			usersMap.put(newUser.getUserId(), newUser);
+		}
+		
+		for (int i=0; i<commentatorNumber; i++) {
+			Sex sex = null;
+			if (random.nextInt(100) < 64) {
+				sex = Sex.FEMALE;
+			} else {
+				sex = Sex.MALE;
+			}
+			User newUser = new User(space, grid, sex, UserCharacteristics.commentatorCharacteristics());
+			context.add(newUser);
+			Set<Integer> keySet = tagMap.keySet();
+			ArrayList<Integer> keys = new ArrayList<Integer>();
+			keys.addAll(keySet);
+			Collections.shuffle(keys);
+			for (int j=0; j<3; j++) {
+				Integer key = keys.get(j);
+				Integer value = tagMap.get(key);
+				Tag tag = getById(key);
+				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+					tagMap.remove(key);
+				} else {
+					tagMap.put(key, value - Integer.valueOf(1));
+				}
+				newUser.addToFavouriteTags(tag);
+			}
+			usersMap.put(newUser.getUserId(), newUser);
+		}
+		
+		for (int i=0; i<chatterNumber; i++) {
+			Sex sex = null;
+			if (random.nextInt(100) < 64) {
+				sex = Sex.FEMALE;
+			} else {
+				sex = Sex.MALE;
+			}
+			User newUser = new User(space, grid, sex, UserCharacteristics.chatterCharacteristics());
+			context.add(newUser);
+			Set<Integer> keySet = tagMap.keySet();
+			ArrayList<Integer> keys = new ArrayList<Integer>();
+			keys.addAll(keySet);
+			Collections.shuffle(keys);
+			for (int j=0; j<3; j++) {
+				Integer key = keys.get(j);
+				Integer value = tagMap.get(key);
+				Tag tag = getById(key);
+				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+					tagMap.remove(key);
+				} else {
+					tagMap.put(key, value - Integer.valueOf(1));
+				}
+				newUser.addToFavouriteTags(tag);
+			}
+			usersMap.put(newUser.getUserId(), newUser);
+		}
+		
+		for (int i=0; i<groupieNumber; i++) {
+			Sex sex = null;
+			if (random.nextInt(100) < 64) {
+				sex = Sex.FEMALE;
+			} else {
+				sex = Sex.MALE;
+			}
+			User newUser = new User(space, grid, sex, UserCharacteristics.groupieCharacteristics());
+			context.add(newUser);
+			Set<Integer> keySet = tagMap.keySet();
+			ArrayList<Integer> keys = new ArrayList<Integer>();
+			keys.addAll(keySet);
+			Collections.shuffle(keys);
+			for (int j=0; j<3; j++) {
+				Integer key = keys.get(j);
+				Integer value = tagMap.get(key);
+				Tag tag = getById(key);
+				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+					tagMap.remove(key);
+				} else {
+					tagMap.put(key, value - Integer.valueOf(1));
+				}
+				newUser.addToFavouriteTags(tag);
+			}
+			usersMap.put(newUser.getUserId(), newUser);
+		}
+		
+		for (int i=0; i<nerdNumber; i++) {
+			Sex sex = null;
+			if (random.nextInt(100) < 64) {
+				sex = Sex.FEMALE;
+			} else {
+				sex = Sex.MALE;
+			}
+			User newUser = new User(space, grid, sex, UserCharacteristics.nerdCharacteristics());
+			context.add(newUser);
+			Set<Integer> keySet = tagMap.keySet();
+			ArrayList<Integer> keys = new ArrayList<Integer>();
+			keys.addAll(keySet);
+			Collections.shuffle(keys);
+			for (int j=0; j<3; j++) {
+				Integer key = keys.get(j);
+				Integer value = tagMap.get(key);
+				Tag tag = getById(key);
+				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+					tagMap.remove(key);
+				} else {
+					tagMap.put(key, value - Integer.valueOf(1));
+				}
+				newUser.addToFavouriteTags(tag);
+			}
+			usersMap.put(newUser.getUserId(), newUser);
+		}
+		
+		for(int i=0; i<haterNumber; i++) {
+			Sex sex = null;
+			if (random.nextInt(100) < 64) {
+				sex = Sex.FEMALE;
+			} else {
+				sex = Sex.MALE;
+			}
+			User newUser = new User(space, grid, sex, UserCharacteristics.haterCharacteristics());
+			context.add(newUser);
+			Set<Integer> keySet = tagMap.keySet();
+			ArrayList<Integer> keys = new ArrayList<Integer>();
+			keys.addAll(keySet);
+			Collections.shuffle(keys);
+			for (int j=0; j<3; j++) {
+				Integer key = keys.get(j);
+				Integer value = tagMap.get(key);
+				Tag tag = getById(key);
+				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+					tagMap.remove(key);
+				} else {
+					tagMap.put(key, value - Integer.valueOf(1));
+				}
+				newUser.addToFavouriteTags(tag);
+			}
+			usersMap.put(newUser.getUserId(), newUser);
+		}
+		
+		for(int i=0; i<observerNumber; i++) {
+			Sex sex = null;
+			if (random.nextInt(100) < 64) {
+				sex = Sex.FEMALE;
+			} else {
+				sex = Sex.MALE;
+			}
+			User newUser = new User(space, grid, sex, UserCharacteristics.observerCharacteristics());
+			context.add(newUser);
+			Set<Integer> keySet = tagMap.keySet();
+			ArrayList<Integer> keys = new ArrayList<Integer>();
+			keys.addAll(keySet);
+			Collections.shuffle(keys);
+			for (int j=0; j<3; j++) {
+				Integer key = keys.get(j);
+				Integer value = tagMap.get(key);
+				Tag tag = getById(key);
+				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+					tagMap.remove(key);
+				} else {
+					tagMap.put(key, value - Integer.valueOf(1));
+				}
+				newUser.addToFavouriteTags(tag);
+			}
+			usersMap.put(newUser.getUserId(), newUser);
+		}
+		
+		for(int i=0; i<nervousNumber; i++) {
+			Sex sex = null;
+			if (random.nextInt(100) < 64) {
+				sex = Sex.FEMALE;
+			} else {
+				sex = Sex.MALE;
+			}
+			User newUser = new User(space, grid, sex, UserCharacteristics.nervousCharacteristics());
+			context.add(newUser);
+			Set<Integer> keySet = tagMap.keySet();
+			ArrayList<Integer> keys = new ArrayList<Integer>();
+			keys.addAll(keySet);
+			Collections.shuffle(keys);
+			for (int j=0; j<3; j++) {
+				Integer key = keys.get(j);
+				Integer value = tagMap.get(key);
+				Tag tag = getById(key);
+				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+					tagMap.remove(key);
+				} else {
+					tagMap.put(key, value - Integer.valueOf(1));
+				}
+				newUser.addToFavouriteTags(tag);
+			}
+			usersMap.put(newUser.getUserId(), newUser);
+		}
+		
+		for(int i=0; i<lonerNumber; i++) {
+			Sex sex = null;
+			if (random.nextInt(100) < 64) {
+				sex = Sex.FEMALE;
+			} else {
+				sex = Sex.MALE;
+			}
+			User newUser = new User(space, grid, sex, UserCharacteristics.lonerCharacteristics());
+			context.add(newUser);
+			Set<Integer> keySet = tagMap.keySet();
+			ArrayList<Integer> keys = new ArrayList<Integer>();
+			keys.addAll(keySet);
+			Collections.shuffle(keys);
+			for (int j=0; j<3; j++) {
+				Integer key = keys.get(j);
+				Integer value = tagMap.get(key);
+				Tag tag = getById(key);
+				if (value - Integer.valueOf(1) == Integer.valueOf(0)) {
+					tagMap.remove(key);
+				} else {
+					tagMap.put(key, value - Integer.valueOf(1));
+				}
+				newUser.addToFavouriteTags(tag);
+			}
+			usersMap.put(newUser.getUserId(), newUser);
+		}
 		
 		for(Object obj : context) {
 			NdPoint point = space.getLocation(obj);
