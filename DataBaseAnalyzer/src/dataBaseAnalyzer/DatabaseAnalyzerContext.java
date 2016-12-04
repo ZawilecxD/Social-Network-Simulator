@@ -66,7 +66,7 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 		contextNet = new ContextJungNetwork<>(jungNet, mainContext);
 
 		NetworkDataLoader dataLoader = new NetworkDataLoader();
-		UsersInteractionsManager userInterManager = new UsersInteractionsManager(10000, 10000);
+		UsersInteractionsManager userInterManager = new UsersInteractionsManager(5000, 10000);
 		dataLoader.getUsers(databaseConnection());
 
 		userInterManager.collectInfoAndSaveInDatabase();
