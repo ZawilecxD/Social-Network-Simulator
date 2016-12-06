@@ -40,7 +40,7 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 	private static HashMap<Integer, User> users = new HashMap<>();
 
 	public static int USED_SENTIMENT = 1;
-	public static final int MAX_THREADS_NUMBER = 8;    
+	public static final int MAX_THREADS_NUMBER = 2;    
 	public static ContextJungNetwork<Object> contextNet;
 
 	@Override
@@ -66,7 +66,7 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 		contextNet = new ContextJungNetwork<>(jungNet, mainContext);
 
 		NetworkDataLoader dataLoader = new NetworkDataLoader();
-		UsersInteractionsManager userInterManager = new UsersInteractionsManager(5000, 10000);
+		UsersInteractionsManager userInterManager = new UsersInteractionsManager(10000, 10000);
 		dataLoader.getUsers(databaseConnection());
 
 		userInterManager.collectInfoAndSaveInDatabase();
@@ -75,10 +75,10 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 
 		System.out.println("Liczba wêz³ów w sieci: "+contextNet.size());
 		System.out.println("Liczba krawêdzi w sieci: "+contextNet.numEdges());
-		System.out.println("DEGREE OF USER 2 =" +contextNet.getDegree(users.get(2)));
+//		System.out.println("DEGREE OF USER 2 =" +contextNet.getDegree(users.get(2)));
 
-		BetweennessCentrality<Object, RepastEdge<Object>>  bc = new BetweennessCentrality<>(contextNet.getGraph());
-		System.out.println("BC ="+bc.getVertexScore(users.get(2)));
+//		BetweennessCentrality<Object, RepastEdge<Object>>  bc = new BetweennessCentrality<>(contextNet.getGraph());
+//		System.out.println("BC ="+bc.getVertexScore(users.get(2)));
 
 		return mainContext;
 	}
