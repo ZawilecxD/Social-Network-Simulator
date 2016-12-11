@@ -36,16 +36,14 @@ public class UsersInteractionsManager {
 	private int singleInsertBatchSize = 10000;
 
 	private final String selectCommentsForPostsForGivenIds = 
-			"select c.author_id, p.author_id, SUM(c.sentiment) as sum1, SUM(c.sentiment2) as sum2, c.date"
-					+" from comments c join posts p on c.post_id = p.id "
-					+" where c.id BETWEEN ? AND ? "
-					+" group by c.author_id, p.author_id, c.date;";
+			"select c.author_id, p.author_id, c.sentiment , c.sentiment2, c.date "
+			+ "from comments c join posts p on c.post_id = p.id "
+			+ "where c.id between ? and ?;";
 
 	private final String selectCommentsForCommentsForGivenIds = 
-			"select c.author_id, c2.author_id, SUM(c.sentiment) as sum1, SUM(c.sentiment2) as sum2, c.date "
-					+"from comments c join comments c2 on c.parentcomment_id = c2.id " 
-					+" where c.id BETWEEN ? AND ? "
-					+"group by c.author_id, c2.author_id, c.date;";
+			"select c.author_id, c2.author_id, c.sentiment , c.sentiment2, c.date "
+			+ "from comments c join comments c2 on c.parentcomment_id = c2.id "
+			+ "where c.id between ? and ?;";
 
 
 
@@ -123,10 +121,10 @@ public class UsersInteractionsManager {
 			while(rs.next()){
 				commentAuthorId = rs.getInt(1);
 				postAuthorId = rs.getInt(2);
-				sentiment1 = rs.getDouble("sum1");
-				sentiment2 = rs.getDouble("sum2"); 
+				sentiment1 = rs.getDouble("sentiment");
+				sentiment2 = rs.getDouble("sentiment2"); 
 				date = LocalDateTime.ofInstant(rs.getTimestamp("date").toInstant(), ZoneId.systemDefault());
-				insertsQueries.put(createInsert(commentAuthorId, postAuthorId, sentiment1, sentiment2, date));				
+				insertsQueries.put(createInsert(commentAuthorId, postAuthorId, sentiment1, sentiment2, date, "commentToPost"));				
 			}	
 		} catch(Exception e) {
 			System.out.println("ERROR while processing data: "+commentAuthorId+" "+postAuthorId+" "+sentiment1+" "+sentiment2+" "+date);
@@ -147,10 +145,10 @@ public class UsersInteractionsManager {
 			while(rs.next()){
 				commentAuthorId = rs.getInt(1);
 				postAuthorId = rs.getInt(2);
-				sentiment1 = rs.getDouble("sum1");
-				sentiment2 = rs.getDouble("sum2");
+				sentiment1 = rs.getDouble("sentiment");
+				sentiment2 = rs.getDouble("sentiment2");
 				date = LocalDateTime.ofInstant(rs.getTimestamp("date").toInstant(), ZoneId.systemDefault());
-				insertsQueries.put(createInsert(commentAuthorId, postAuthorId, sentiment1, sentiment2, date));				
+				insertsQueries.put(createInsert(commentAuthorId, postAuthorId, sentiment1, sentiment2, date, "commentToComment"));				
 			}
 		} catch(Exception e) {
 			System.out.println("ERROR while processing data: "+commentAuthorId+" "+postAuthorId+" "+sentiment1+" "+sentiment2+" "+date);
@@ -241,7 +239,7 @@ public class UsersInteractionsManager {
 		}
 	}
 
-	private String createInsert(int id1, int id2, Double sent1, Double sent2, LocalDateTime date) {
+	private String createInsert(int id1, int id2, Double sent1, Double sent2, LocalDateTime date, String operationType) {
 		if(sent1.isNaN()) {
 			sent1 = 0.0;
 		}
@@ -250,8 +248,8 @@ public class UsersInteractionsManager {
 		}
 		String dateString = date.toString().replace("T", " ");
 
-		return "insert into users_interactions(source, target, weight, weight2, date) "
-				+ "values ("+id1+", "+id2+", "+sent1+", "+sent2+", '"+dateString+"');";
+		return "insert into users_interactions(source, target, weight, weight2, date, type) "
+				+ "values ("+id1+", "+id2+", "+sent1+", "+sent2+", '"+dateString+"', '"+operationType+"');";
 	}
 
 }

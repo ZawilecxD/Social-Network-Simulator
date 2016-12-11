@@ -1,6 +1,7 @@
 package dataBaseAnalyzer;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -66,16 +67,19 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 		contextNet = new ContextJungNetwork<>(jungNet, mainContext);
 
 		NetworkDataLoader dataLoader = new NetworkDataLoader();
+		TimeIntervalStatisticsManager timeIntervalStatsManager = new TimeIntervalStatisticsManager();
 		UsersInteractionsManager userInterManager = new UsersInteractionsManager(10000, 10000);
 		dataLoader.getUsers(databaseConnection());
-
-		userInterManager.collectInfoAndSaveInDatabase();
-			
-//		dataLoader.getEdges();
+//		userInterManager.collectInfoAndSaveInDatabase();
+		
+		timeIntervalStatsManager.getUsersInteractionsForTimeInterval(Date.valueOf("2009-01-01"), Date.valueOf("2009-02-01"));
+		
+//		dataLoader.getEdges(); TODO: tez podzielic wybieranie userinteractions na watki i batche
+		
 
 		System.out.println("Liczba wêz³ów w sieci: "+contextNet.size());
 		System.out.println("Liczba krawêdzi w sieci: "+contextNet.numEdges());
-//		System.out.println("DEGREE OF USER 2 =" +contextNet.getDegree(users.get(2)));
+		System.out.println("DEGREE OF USER 1074 =" +contextNet.getDegree(users.get(1074)));
 
 //		BetweennessCentrality<Object, RepastEdge<Object>>  bc = new BetweennessCentrality<>(contextNet.getGraph());
 //		System.out.println("BC ="+bc.getVertexScore(users.get(2)));
@@ -91,7 +95,7 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 					.getConnection("jdbc:postgresql://localhost:5432/salon24db",
 							"postgres", "");
 			c.setAutoCommit(false);
-			System.out.println("Opened database successfully");
+			System.out.println("Opened database connection successfully");
 			return c;
 		} catch ( Exception e ) {
 			e.printStackTrace();
@@ -115,6 +119,18 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 		users.put(u.getId(), u);
 	}
 
+	public static void addEdge(User u1, User u2, double weight) {
+		RepastEdge<Object> edge = contextNet.getEdge(u1, u2);
+		if(edge != null) {
+			double newWeight = edge.getWeight() + weight;
+			edge.setWeight(newWeight);
+//			System.out.println("Updating edge between: "+u1.toString()+" and "+u2.toString()+" , current weight="+newWeight);
+		} else {
+			contextNet.addEdge(u1, u2, weight);
+//			System.out.println("Creating ne edge between: "+u1.toString()+" and "+u2.toString()+" , current weight="+weight);
+		}
+	}
+	
 	public static Network<Object> getNetwork() {
 		return (Network<Object>) mainContext.getProjection("friendships network");
 	}

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.temporal.TemporalUnit;
 
 /**
  * Used to get all authors(nodes) from database and all their interactions (edges).
@@ -45,7 +46,7 @@ public class NetworkDataLoader {
 		} finally {
 			try {
 				Instant end = Instant.now();
-				System.out.println("Getting users from database took: "+Duration.between(start, end).getSeconds()+" seconds");
+				System.out.println("Getting users from database took: "+Duration.between(start, end).toMillis()+" miliseconds");
 				c.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -56,26 +57,30 @@ public class NetworkDataLoader {
 
 	//NetworkDataLoader
 	public void getEdges() {
+		System.out.println("START: "+selectUsersInteractions);
 		Instant start = Instant.now();
 		Connection c = DatabaseAnalyzerContext.databaseConnection();
 		Statement stmt = null;
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery( selectUsersInteractions );
-			User u1 = null;
-			User u2 = null;
+			User u1 = null, u2 = null;
+			int fromId, toId; 
+			double sentiment, sentiment2;
 			do{
 				rs.next();
-				int fromId = rs.getInt("source");
-				int toId = rs.getInt("target");
-				double sentiment = rs.getDouble("weight");
-				double sentiment2 = rs.getDouble("weight2");
+				fromId = rs.getInt("source");
+				toId = rs.getInt("target");
+				sentiment = rs.getDouble("weight");
+				sentiment2 = rs.getDouble("weight2");
+//				Date date = rs.getDate("date");
+//				String type = rs.getType("type");
 				u1 = DatabaseAnalyzerContext.getUsers().get(fromId);
 				u2 = DatabaseAnalyzerContext.getUsers().get(toId);
 				if(DatabaseAnalyzerContext.USED_SENTIMENT == 2) {
-					DatabaseAnalyzerContext.contextNet.addEdge(u1, u2).setWeight(sentiment2);
+					DatabaseAnalyzerContext.addEdge(u1, u2, sentiment2);
 				} else {
-					DatabaseAnalyzerContext.contextNet.addEdge(u1, u2).setWeight(sentiment);
+					DatabaseAnalyzerContext.addEdge(u1, u2, sentiment);
 				}
 			} while(!rs.isLast());
 			rs.close();
@@ -86,7 +91,7 @@ public class NetworkDataLoader {
 		} finally {
 			try {
 				Instant end = Instant.now();
-				System.out.println("Getting users from database took: "+Duration.between(start, end).getSeconds()+" seconds");
+				System.out.println("Getting users interactions from database took: "+Duration.between(start, end).getSeconds()+" seconds");
 				c.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
