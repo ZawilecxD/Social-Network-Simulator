@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="repast.simphony.context.space.grid.GridFactory"/>
-<fullyQualifiedTypeName name="repast.simphony.space.grid.SimpleGridAdder"/>
-<fullyQualifiedTypeName name="repast.simphony.space.grid.GridBuilderParameters"/>
-<fullyQualifiedTypeName name="repast.simphony.space.continuous.RandomCartesianAdder"/>
-<fullyQualifiedTypeName name="repast.simphony.space.continuous.ContinuousSpace"/>
-<fullyQualifiedTypeName name="repast.simphony.context.space.continuous.ContinuousSpaceFactoryFinder"/>
-<fullyQualifiedTypeName name="repast.simphony.context.space.continuous.ContinuousSpaceFactory"/>
 <fullyQualifiedTypeName name="repast.simphony.space.continuous.NdPoint"/>
 <fullyQualifiedTypeName name="lombok.Getter"/>
 <fullyQualifiedTypeName name="user.UserCharacteristics"/>
@@ -29,15 +22,11 @@
 <fullyQualifiedTypeName name="javax.swing.JTextField"/>
 <fullyQualifiedTypeName name="repast.simphony.ui.table.AgentTableListener"/>
 <fullyQualifiedTypeName name="repast.simphony.parameter.Parameter"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.util.function.Predicate"/>
-<fullyQualifiedTypeName name="java.time.Instant"/>
-<fullyQualifiedTypeName name="java.time.Duration"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
@@ -46,18 +35,29 @@
 <fullyQualifiedTypeName name="org.postgresql.jdbc2.optional.ConnectionPool"/>
 <fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="dataBaseAnalyzer.DatabaseAnayzerContext"/>
-<fullyQualifiedTypeName name="java.time.temporal.TemporalUnit"/>
 <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.util.concurrent.ConcurrentLinkedQueue"/>
 <fullyQualifiedTypeName name="repast.simphony.space.graph.JungNetwork"/>
 <fullyQualifiedTypeName name="repast.simphony.space.graph.DirectedJungNetwork"/>
 <fullyQualifiedTypeName name="repast.simphony.context.space.graph.ContextJungNetwork"/>
 <fullyQualifiedTypeName name="edu.uci.ics.jung.graph.Graph"/>
 <fullyQualifiedTypeName name="repast.simphony.space.graph.RepastEdge"/>
 <fullyQualifiedTypeName name="edu.uci.ics.jung.algorithms.importance.BetweennessCentrality"/>
+<fullyQualifiedTypeName name="dataBaseAnalyzer.DatabaseAnayzerContext"/>
+<fullyQualifiedTypeName name="bibliothek.gui.dock.layout.DockLayoutInfo.Data"/>
+<fullyQualifiedTypeName name="java.time.ZoneId"/>
+<fullyQualifiedTypeName name="java.time.Duration"/>
+<fullyQualifiedTypeName name="dataBaseAnalyzer.UsersInteractionsManager"/>
+<fullyQualifiedTypeName name="java.time.Instant"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ConcurrentLinkedQueue"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ArrayBlockingQueue"/>
+<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+<fullyQualifiedTypeName name="dataBaseAnalyzer.DatabaseAnalyzerContext"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.time.temporal.TemporalUnit"/>
+<fullyQualifiedTypeName name="dataBaseAnalyzer.TimeIntervalStatisticsManager"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
 </qualifiedTypeNameHistroy>

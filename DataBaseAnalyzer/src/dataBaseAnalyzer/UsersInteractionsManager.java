@@ -251,5 +251,51 @@ public class UsersInteractionsManager {
 		return "insert into users_interactions(source, target, weight, weight2, date, type) "
 				+ "values ("+id1+", "+id2+", "+sent1+", "+sent2+", '"+dateString+"', '"+operationType+"');";
 	}
+	
+	public String getStartDate() {
+		Connection c = DatabaseAnalyzerContext.databaseConnection();
+		PreparedStatement ps = null;
+		try {
+			ps = c.prepareStatement("select MIN(date) from users_interactions ;");
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			return rs.getDate(1).toString();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				c.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
+	public String getEndDate() {
+		Connection c = DatabaseAnalyzerContext.databaseConnection();
+		PreparedStatement ps = null;
+		try {
+			ps = c.prepareStatement("select MAX(date) from users_interactions ;");
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			return rs.getDate(1).toString();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				c.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 
 }

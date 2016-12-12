@@ -7,8 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
@@ -72,7 +75,29 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 		dataLoader.getUsers(databaseConnection());
 //		userInterManager.collectInfoAndSaveInDatabase();
 		
-		timeIntervalStatsManager.getUsersInteractionsForTimeInterval(Date.valueOf("2009-01-01"), Date.valueOf("2009-02-01"));
+		String startDate = userInterManager.getStartDate();
+		String endDate = "2008-02-01";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar currentCallendar = Calendar.getInstance();
+		Calendar endCallendar = Calendar.getInstance();
+		Date tempDate = null;
+		System.out.println("Start date: "+startDate+"  EndDate: "+endDate);
+		try {
+			currentCallendar.setTime(sdf.parse(startDate));
+			endCallendar.setTime(sdf.parse(endDate));
+			while(currentCallendar.before(endCallendar)) {
+				tempDate = new Date(currentCallendar.getTime().getTime());
+				currentCallendar.add(Calendar.DATE, 7);
+				System.out.println("Getting time interval stats for week from "+sdf.parse(tempDate.toString())+" to "+sdf.format(currentCallendar.getTime()));
+				timeIntervalStatsManager.getUsersInteractionsForTimeInterval(
+						tempDate,
+						Date.valueOf(sdf.format(currentCallendar.getTime()))
+				);
+				clearNetwork();
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}		
 		
 //		dataLoader.getEdges(); TODO: tez podzielic wybieranie userinteractions na watki i batche
 		
@@ -133,6 +158,11 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 	
 	public static Network<Object> getNetwork() {
 		return (Network<Object>) mainContext.getProjection("friendships network");
+	}
+	
+	public static void clearNetwork() {
+		DirectedJungNetwork<Object> jungNet = new DirectedJungNetwork<>("friendships network");	
+		contextNet = new ContextJungNetwork<>(jungNet, mainContext);
 	}
 
 }
