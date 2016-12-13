@@ -23,13 +23,17 @@ import repast.simphony.context.Context;
 import repast.simphony.context.space.continuous.ContinuousSpaceFactory;
 import repast.simphony.context.space.continuous.ContinuousSpaceFactoryFinder;
 import repast.simphony.context.space.graph.ContextJungNetwork;
+import repast.simphony.context.space.graph.NetworkBuilder;
 import repast.simphony.context.space.grid.GridFactory;
 import repast.simphony.context.space.grid.GridFactoryFinder;
 import repast.simphony.dataLoader.ContextBuilder;
+import repast.simphony.engine.environment.RunEnvironment;
+import repast.simphony.parameter.Parameters;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.continuous.RandomCartesianAdder;
 import repast.simphony.space.graph.DirectedJungNetwork;
+import repast.simphony.space.graph.JungNetwork;
 import repast.simphony.space.graph.Network;
 import repast.simphony.space.graph.RepastEdge;
 import repast.simphony.space.grid.Grid;
@@ -66,17 +70,21 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 						new SimpleGridAdder<Object>() ,
 						true , 500 , 500));
 
-		DirectedJungNetwork<Object> jungNet = new DirectedJungNetwork<>("friendships network");	
-		contextNet = new ContextJungNetwork<>(jungNet, mainContext);
+		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("friendships network", context, true);
+		contextNet = (ContextJungNetwork<Object>) netBuilder.buildNetwork();
 
+		Parameters params = RunEnvironment.getInstance().getParameters();
+		String startDate =  (String) params.getValue("startDate");
+		String endDate =  (String) params.getValue("endDate");
+		
 		NetworkDataLoader dataLoader = new NetworkDataLoader();
 		TimeIntervalStatisticsManager timeIntervalStatsManager = new TimeIntervalStatisticsManager();
 		UsersInteractionsManager userInterManager = new UsersInteractionsManager(10000, 10000);
-		dataLoader.getUsers(databaseConnection());
+//		dataLoader.getUsers(databaseConnection());
 //		userInterManager.collectInfoAndSaveInDatabase();
 		
-		String startDate = userInterManager.getStartDate();
-		String endDate = "2008-02-01";
+//		String startDate = userInterManager.getStartDate();
+//		String endDate = userInterManager.getEndDate();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar currentCallendar = Calendar.getInstance();
 		Calendar endCallendar = Calendar.getInstance();
@@ -93,7 +101,7 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 						tempDate,
 						Date.valueOf(sdf.format(currentCallendar.getTime()))
 				);
-				clearNetwork();
+				//clearNetwork();
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -101,10 +109,24 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 		
 //		dataLoader.getEdges(); TODO: tez podzielic wybieranie userinteractions na watki i batche
 		
+//		DirectedJungNetwork<Object> jungNet = new DirectedJungNetwork<>("jung friendships network");	
+//		ContextJungNetwork<Object> jungContextNet = new ContextJungNetwork<>(jungNet, mainContext);
+//		for(RepastEdge<Object> edge : contextNet.getEdges()) {
+//			jungContextNet.addEdge(edge);
+//		}
+
+//		ContextJungNetwork jungNet = new ContextJungNetwork(contextNet, mainContext);
+//		contextNet = new ContextJungNetwork<>(jungNet, mainContext);
 
 		System.out.println("Liczba wêz³ów w sieci: "+contextNet.size());
 		System.out.println("Liczba krawêdzi w sieci: "+contextNet.numEdges());
-		System.out.println("DEGREE OF USER 1074 =" +contextNet.getDegree(users.get(1074)));
+//		System.out.println("Liczba wêz³ów w sieci JUNG: "+jungNet.size());
+//		System.out.println("Liczba krawêdzi w sieci JUNG: "+jungNet.numEdges());
+//		System.out.println("DEGREE OF USER 1074 =" +contextNet.getDegree(users.get(1074)));
+		BetweennessCentrality<Object, RepastEdge<Object>>  bc = new BetweennessCentrality<>(contextNet.getGraph());
+		for(int id : users.keySet()) {
+			System.out.println("BetweennessCentrality OF USER "+id+" is "+bc.getVertexScore(users.get(id)));
+		}
 
 //		BetweennessCentrality<Object, RepastEdge<Object>>  bc = new BetweennessCentrality<>(contextNet.getGraph());
 //		System.out.println("BC ="+bc.getVertexScore(users.get(2)));
@@ -157,12 +179,23 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 	}
 	
 	public static Network<Object> getNetwork() {
-		return (Network<Object>) mainContext.getProjection("friendships network");
+		return contextNet;
 	}
 	
 	public static void clearNetwork() {
 		DirectedJungNetwork<Object> jungNet = new DirectedJungNetwork<>("friendships network");	
 		contextNet = new ContextJungNetwork<>(jungNet, mainContext);
+	}
+	
+	public static User getUser(int id) {
+		User u = null;
+		u = users.get(id);
+		if(u == null) {
+			u = new User(space, grid, id);
+			users.put(id, u);
+			mainContext.add(u);
+		}
+		return u;
 	}
 
 }

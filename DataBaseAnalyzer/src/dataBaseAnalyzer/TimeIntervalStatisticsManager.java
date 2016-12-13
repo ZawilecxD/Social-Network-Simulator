@@ -55,13 +55,13 @@ public class TimeIntervalStatisticsManager {
 				sentiment = rs.getDouble("weight");
 				sentiment2 = rs.getDouble("weight2");
 				type = rs.getString("type");
-//				u1 = DatabaseAnalyzerContext.getUsers().get(fromId);
-//				u2 = DatabaseAnalyzerContext.getUsers().get(toId);
-//				if(DatabaseAnalyzerContext.USED_SENTIMENT == 2) {
-//					DatabaseAnalyzerContext.addEdge(u1, u2, sentiment2);
-//				} else {
-//					DatabaseAnalyzerContext.addEdge(u1, u2, sentiment);
-//				}
+				u1 = DatabaseAnalyzerContext.getUser(fromId);
+				u2 = DatabaseAnalyzerContext.getUser(toId);
+				if(DatabaseAnalyzerContext.USED_SENTIMENT == 2) {
+					DatabaseAnalyzerContext.addEdge(u1, u2, sentiment2);
+				} else {
+					DatabaseAnalyzerContext.addEdge(u1, u2, sentiment);
+				}
 				CsvEditor.writeLine(writer, Arrays.asList(
 						String.valueOf(fromId),
 						String.valueOf(toId),

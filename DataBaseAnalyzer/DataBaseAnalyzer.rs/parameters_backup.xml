@@ -6,12 +6,6 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="endDate" displayName="EndDate" type="java.lang.String" 
-						defaultValue="2008-01-07" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
-									
-		/>
 				<parameter name="startDate" displayName="Start Date" type="java.lang.String" 
 						defaultValue="2008-01-01" 
 						isReadOnly="false" 
