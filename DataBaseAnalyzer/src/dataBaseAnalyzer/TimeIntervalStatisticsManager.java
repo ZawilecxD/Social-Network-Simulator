@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Arrays;
@@ -45,6 +46,7 @@ public class TimeIntervalStatisticsManager {
 			User u1 = null, u2 = null;
 			int fromId, toId, rowCount = 0;
 			double sentiment, sentiment2;
+			Timestamp date = null;
 			String type = null;
 			System.out.println("START: "+ps.toString());
 			ResultSet rs = ps.executeQuery();
@@ -55,6 +57,7 @@ public class TimeIntervalStatisticsManager {
 				sentiment = rs.getDouble("weight");
 				sentiment2 = rs.getDouble("weight2");
 				type = rs.getString("type");
+				date = rs.getTimestamp("date");
 				u1 = DatabaseAnalyzerContext.getUser(fromId);
 				u2 = DatabaseAnalyzerContext.getUser(toId);
 				if(DatabaseAnalyzerContext.USED_SENTIMENT == 2) {
@@ -67,6 +70,7 @@ public class TimeIntervalStatisticsManager {
 						String.valueOf(toId),
 						String.valueOf(sentiment),
 						String.valueOf(sentiment2),
+						String.valueOf(date),
 						type
 						)
 				);

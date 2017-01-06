@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="bin">
+    <CLASSES>
+      <root url="file://D:/RepastSimphony-2.4/eclipse/plugins/repast.simphony.runtime_2.4.0/bin" />
+      <root url="file://D:/RepastSimphony-2.4/eclipse/plugins/repast.simphony.runtime_2.4.0/lib" />
+      <root url="jar://D:/RepastSimphony-2.4/eclipse/plugins/repast.simphony.bin_and_src_2.4.0/repast.simphony.bin_and_src.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://D:/RepastSimphony-2.4/eclipse/plugins/repast.simphony.bin_and_src_2.4.0/repast.simphony.bin_and_src.jar!/" />
+    </SOURCES>
+    <jarDirectory url="file://D:/RepastSimphony-2.4/eclipse/plugins/repast.simphony.runtime_2.4.0/lib" recursive="false" />
+  </library>
+</component>

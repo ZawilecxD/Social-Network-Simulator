@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CsvEditor {
 
-	public static final String CSV_FOLDER_PATH = "D:\\Projekty\\csv\\";
+	public static final String CSV_FOLDER_PATH = "D:\\Projekty\\csv2\\";
 	private static final char DEFAULT_SEPARATOR = ';';
 
     public static void writeLine(Writer w, List<String> values) throws IOException {

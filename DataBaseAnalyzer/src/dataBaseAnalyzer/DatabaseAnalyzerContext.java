@@ -83,8 +83,6 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 //		dataLoader.getUsers(databaseConnection());
 //		userInterManager.collectInfoAndSaveInDatabase();
 		
-//		String startDate = userInterManager.getStartDate();
-//		String endDate = userInterManager.getEndDate();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar currentCallendar = Calendar.getInstance();
 		Calendar endCallendar = Calendar.getInstance();
@@ -120,13 +118,23 @@ public class DatabaseAnalyzerContext  implements ContextBuilder<Object>{
 
 		System.out.println("Liczba wêz³ów w sieci: "+contextNet.size());
 		System.out.println("Liczba krawêdzi w sieci: "+contextNet.numEdges());
+		
+		System.out.println("Testing GraphStream");
+//		org.graphstream.graph.Graph graph = new org.graphstream.graph.implementations.SingleGraph("Tutorial 1");
+//		graph.setStrict(false);
+//		graph.setAutoCreate( true );
+//		graph.addEdge("AB", "A", "B");
+//		graph.addEdge("BC", "B", "C");
+//		graph.addEdge("CA", "C", "A");
+//		graph.display();
+		
 //		System.out.println("Liczba wêz³ów w sieci JUNG: "+jungNet.size());
 //		System.out.println("Liczba krawêdzi w sieci JUNG: "+jungNet.numEdges());
 //		System.out.println("DEGREE OF USER 1074 =" +contextNet.getDegree(users.get(1074)));
-		BetweennessCentrality<Object, RepastEdge<Object>>  bc = new BetweennessCentrality<>(contextNet.getGraph());
-		for(int id : users.keySet()) {
-			System.out.println("BetweennessCentrality OF USER "+id+" is "+bc.getVertexScore(users.get(id)));
-		}
+//		BetweennessCentrality<Object, RepastEdge<Object>>  bc = new BetweennessCentrality<>(contextNet.getGraph());
+//		for(int id : users.keySet()) {
+//			System.out.println("BetweennessCentrality OF USER "+id+" is "+bc.getVertexScore(users.get(id)));
+//		}
 
 //		BetweennessCentrality<Object, RepastEdge<Object>>  bc = new BetweennessCentrality<>(contextNet.getGraph());
 //		System.out.println("BC ="+bc.getVertexScore(users.get(2)));
